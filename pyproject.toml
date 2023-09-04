@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "climate"
+version = "0.1.0"
+description = ""
+authors = ["Col Perks <wild.fauve@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+climate = "climate.cli.climate:cli"
+locale = "climate.cli.locale:cli"
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+rdflib = "^7.0.0"
+pymonad = "^2.4.0"
+clojos-common = {git = "https://github.com/wildfauve/clojos_common.git", rev = "main"}
+polars = {extras = ["pyarrow"], version = "^0.19.1"}
+python-dotenv = "^1.0.0"
+pendulum = "^2.1.2"
+click = "^8.1.7"
+rich = "^13.5.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.1"
+pytest-env = "^1.0.1"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+python_classes = [
+    "*Test",
+    "Test*",
+    "Describe*",
+]
+python_functions = [
+    "test_*",
+    "it_*",
+]
+xfail_strict = true
+log_cli = true
+log_cli_level = 20
+env = [
+]
+testpaths = [
+    "tests",
+    "integration",
+]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
