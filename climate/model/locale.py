@@ -32,8 +32,11 @@ def _to_locale(name):
 
 def locale_from_name(g: repo.GraphRepo, name) -> monad.EitherMonad:
     result_dto = repo.locale.find_by_name(g, name)
-    return monad.Right(Locale(name=result_dto.name,
-                              subject=result_dto.subject))
+    return to_locale(name=result_dto.name, subject=result_dto.subject)
+
+
+def to_locale(name, subject):
+    return monad.Right(Locale(name=name,subject=subject))
 
 
 def _to_subject(name) -> URIRef:

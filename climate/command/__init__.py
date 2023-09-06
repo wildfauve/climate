@@ -3,6 +3,10 @@ from .locale import (
 )
 
 from .temperature import (
-    add_temperature
+    add_temperature,
+    plot_temperatures
 )
 
+from .narrative import (
+    add_narrative
+)

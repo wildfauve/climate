@@ -7,6 +7,6 @@ from .triples import (
     save
 )
 
-from . import temperature, locale
+from . import temperature, locale, narrative
 
 from .graphdb import GraphRepo
