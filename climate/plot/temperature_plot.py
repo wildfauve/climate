@@ -20,7 +20,7 @@ def locale_temperatures(df):
 
 
 def _file():
-    return temp_file_root / f"{pendulum.now().to_date_string()}.png"
+    return temp_file_root / f"locale_daily_temperature_{pendulum.now().to_date_string()}.png"
 
 def _create_plot(file, df):
     dates = _unique_recorded_at(df)
@@ -29,9 +29,9 @@ def _create_plot(file, df):
     fig, ax = _plot_figure("Days", dates)
 
     for locale in locales:
+        locale_df = _filter_locale(df, locale)
         for temp_type in ['Min', "Max"]:
-            locale_df = _filter_locale_temp_type(df, locale, temp_type)
-            values = [r[0] for r in locale_df.rows()]
+            values = locale_df.select(pl.col(temp_type)).get_columns()[0].to_list()
             label = f"{locale}-{temp_type}"
             ax.plot(dates, values, label=label, marker=_to_marker(label))
 
@@ -84,6 +84,12 @@ def _unique_recorded_at(df):
 def _filter_locale_temp_type(df, locale, temp_type):
     return (df.filter(pl.col('Locale') == locale)
             .select(pl.col(temp_type)))
+
+
+def _filter_locale(df, locale):
+    return (df.filter(pl.col('Locale') == locale)
+            .sort(pl.col('RecordedAt'))
+            .select(pl.col('Min'), pl.col('Max')))
 
 
 def _unique_locales(df):

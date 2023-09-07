@@ -41,11 +41,12 @@ def add_narrative(locale, terms, date):
 
 
 @click.command()
-def plot():
+@click.option("--channel", "-c", type=click.Choice(helpers.channels()))
+def plot(channel):
     """
     Plot Stub
     """
-    command.plot_temperatures()
+    command.plot_temperatures(channel=channel)
     pass
 
 

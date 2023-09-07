@@ -12,6 +12,7 @@ from climate import model, repo, rdf
 
 class WeatherNarrativeTerm(Enum):
     MILD = rdf.plz_cl_nar.Mild
+    WARM = rdf.plz_cl_nar.WARM
     FROST = rdf.plz_cl_nar.Frost
     SUNNY = rdf.plz_cl_nar.Sunny
     COLD = rdf.plz_cl_nar.Cold

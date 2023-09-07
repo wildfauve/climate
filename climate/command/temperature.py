@@ -16,13 +16,13 @@ def add_temperature(locale, minimum, maximum, date=None) -> monad.EitherMonad[Di
     return result
 
 
-def plot_temperatures():
+def plot_temperatures(channel):
     g = helpers.climate_graph()
     result = plot.temperature_plot.locale_temperatures(df=dataframe.temperature.locale_temperatures(g))
     if result.is_left():
         return result
     presenter.plot_to_channel(result.value,
-                              channel=adapter.Channel.DISCORD,
+                              channel=adapter.Channel[channel],
                               title="Daily Temperature Plot",
                               description="Daily min/max temperatures at each locale")
     return result
