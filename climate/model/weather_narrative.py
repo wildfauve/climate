@@ -28,7 +28,7 @@ class WeatherNarrativeRecord:
     subject: URIRef
     locale: model.locale.Locale
     terms: List[WeatherNarrativeTerm]
-    date: pendulum.Date
+    recorded_at: pendulum.Date
 
 
 def record(g: repo.GraphRepo, locale: str, terms: List[str], date=None):
@@ -46,7 +46,7 @@ def _to_model(g: repo.GraphRepo, locale_name: str, terms: List[str], date: str =
     return WeatherNarrativeRecord(subject=_record_sub(locale.value, record_date),
                                   locale=locale.value,
                                   terms=_to_terms(terms),
-                                  date=record_date)
+                                  recorded_at=record_date)
 
 
 

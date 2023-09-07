@@ -2,7 +2,7 @@ from typing import Dict
 
 from clojos_common.util import monad
 
-from climate import initialiser, model, dataframe, plot
+from climate import initialiser, model, dataframe, plot, presenter, adapter
 from climate.command import helpers, commanda
 
 @commanda.command(graph_names=['climate_graph'])
@@ -18,5 +18,11 @@ def add_temperature(locale, minimum, maximum, date=None) -> monad.EitherMonad[Di
 
 def plot_temperatures():
     g = helpers.climate_graph()
-    plot.temperature_plot.locale_temperatures(df=dataframe.temperature.locale_temperatures(g))
-    return monad.Right(None)
+    result = plot.temperature_plot.locale_temperatures(df=dataframe.temperature.locale_temperatures(g))
+    if result.is_left():
+        return result
+    presenter.plot_to_channel(result.value,
+                              channel=adapter.Channel.DISCORD,
+                              title="Daily Temperature Plot",
+                              description="Daily min/max temperatures at each locale")
+    return result
