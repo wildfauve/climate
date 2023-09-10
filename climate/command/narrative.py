@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 
 from clojos_common.util import monad
 
@@ -7,7 +7,7 @@ from climate.command import helpers, commanda
 
 
 @commanda.command(graph_names=['climate_graph'])
-def add_narrative(locale, terms, date=None) -> monad.EitherMonad[Dict]:
+def add_narrative(locale, terms: List[str], date=None) -> monad.EitherMonad[Dict]:
     g = helpers.climate_graph()
     result = model.weather_narrative.record(g=g,
                                             locale=locale,

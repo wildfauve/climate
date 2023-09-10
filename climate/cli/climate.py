@@ -41,7 +41,7 @@ def add_narrative(locale, terms, date):
 
 
 @click.command()
-@click.option("--channel", "-c", type=click.Choice(helpers.channels()))
+@click.option("--channel", "-c", default='terminal', type=click.Choice(helpers.channels()))
 def plot(channel):
     """
     Plot Stub

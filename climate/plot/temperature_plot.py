@@ -62,7 +62,7 @@ def _plot_figure(name, dates):
     # ax.set_xticks(range(0, len(dates)))
     # ax.set_xticklabels(dates)
     ax.set_xlabel(name)  # Add an x-label to the axes.
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%d-%m'))
 
     ax.set_ylabel('Temperature Celsius')  # Add a y-label to the axes.
 

@@ -57,4 +57,4 @@ def _record_sub(locale: model.locale.Locale, date) -> URIRef:
 
 
 def _to_terms(terms: List[str]) -> List[WeatherNarrativeTerm]:
-    return [WeatherNarrativeTerm[t] for t in terms if t in WeatherNarrativeTerm.__members__]
+    return [WeatherNarrativeTerm[t.upper()] for t in terms if t in WeatherNarrativeTerm.__members__]
