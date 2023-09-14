@@ -77,10 +77,14 @@ class NarrativeStatement:
 
 
 def parse(component: str):
-    noun, adj_type = _noun(component).value
-    return NarrativeStatement(noun=_noun(component),
-                              temporal_adjectives=_temporal_adjectives(component, adj_type))
+    minified_component = _remove_fill(component)
+    noun, adj_type = _noun(minified_component).value
+    return NarrativeStatement(noun=noun,
+                              temporal_adjectives=_temporal_adjectives(minified_component, adj_type))
 
+
+def _remove_fill(component: str) -> str:
+    return component.replace(" ", "")
 
 def _noun(component: str) -> Tuple:
     search = noun_concept.search(component)
