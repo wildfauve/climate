@@ -1,34 +1,19 @@
 from __future__ import annotations
 from typing import List, Union
 from dataclasses import dataclass
-from enum import Enum
 
 import pendulum
-from rdflib import URIRef, Graph
-from clojos_common.util import monad, tokeniser
+from rdflib import URIRef
+from clojos_common.util import monad
 
 from climate import model, repo, rdf
-
-
-class WeatherNarrativeTerm(Enum):
-    MILD = rdf.plz_cl_nar.Mild
-    WARM = rdf.plz_cl_nar.WARM
-    FROST = rdf.plz_cl_nar.Frost
-    SUNNY = rdf.plz_cl_nar.Sunny
-    COLD = rdf.plz_cl_nar.Cold
-    OVERCAST = rdf.plz_cl_nar.OverCast
-    WILD_LIGHT = rdf.plz_cl_nar.WildLight
-    WILD_MODERATE = rdf.plz_cl_nar.WildModerate
-    WILD_STRONG = rdf.plz_cl_nar.WildStrong
-    WILD_GALE = rdf.plz_cl_nar.WildGale
-    RAIN_LIGHT_SPARSE = rdf.plz_cl_nar.RainLightSparse
 
 
 @dataclass
 class WeatherNarrativeRecord:
     subject: URIRef
     locale: model.locale.Locale
-    terms: List[WeatherNarrativeTerm]
+    narrative_statements: List[model.narrative_parser.TemporalAdjectiveCollection]
     recorded_at: pendulum.Date
 
 
@@ -46,9 +31,8 @@ def _to_model(g: repo.GraphRepo, locale_name: str, terms: List[str], date: str =
     record_date = model.helpers.record_date(date)
     return WeatherNarrativeRecord(subject=_record_sub(locale.value, record_date),
                                   locale=locale.value,
-                                  terms=_to_terms(terms),
+                                  narrative_statements=_to_statements(terms),
                                   recorded_at=record_date)
-
 
 
 def _record_sub(locale: model.locale.Locale, date) -> URIRef:
@@ -56,5 +40,5 @@ def _record_sub(locale: model.locale.Locale, date) -> URIRef:
     return rdf.plz_cl_ind_nar[locale.symbolised_name()] + "/" + date_form
 
 
-def _to_terms(terms: List[str]) -> List[WeatherNarrativeTerm]:
-    return [WeatherNarrativeTerm[t.upper()] for t in terms if t in WeatherNarrativeTerm.__members__]
+def _to_statements(terms: List[str]) -> List[model.narrative_parser.TemporalAdjectiveCollection]:
+    return [model.narrative_parser.parse(term) for term in terms]

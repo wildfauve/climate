@@ -22,10 +22,27 @@ def _creator(narrative_record, g: repo.GraphRepo, sub) -> monad.EitherMonad:
     g.add((sub, RDF.type, rdf.WeatherNarrative))
     g.add((sub, rdf.recordedAtLocale, narrative_record.locale.subject))
     g.add((sub, rdf.isRecordedOnDateTime, Literal(narrative_record.recorded_at)))
-    for t in narrative_record.terms:
-        g.add((sub, rdf.hasWeatherNarrativeTerm, t.value))
+    for statement in narrative_record.narrative_statements:
+        _add_narrative(g, sub, statement)
     return monad.Right(g)
 
+
+def _add_narrative(g, sub, statement):
+    bn = BNode()
+    g.add((sub, rdf.hasWeatherNarrativeStatement, bn))
+    g.add((bn, RDF.type, rdf.WeatherNarrativeStatement))
+    g.add((bn, rdf.isStatementOnWeatherPhenomenon, statement.noun.value[0]))
+    for temp_adj in statement.temporal_adjectives:
+        _add_temporal_adjective(g, bn, temp_adj)
+    return g
+
+
+def _add_temporal_adjective(g, bn, temp_adj):
+    temp_adj_bn = BNode()
+    g.add((bn, rdf.hasTemporalAdjective, temp_adj_bn))
+    g.add((temp_adj_bn, rdf.hasAdjective, temp_adj.adjective.value))
+    for temporal_statement in temp_adj.temporal_statements:
+        g.add((temp_adj_bn, rdf.hasTemporalExpression, temporal_statement.value))
 
 def _updater(temp_record, g: repo.GraphRepo, sub):
     breakpoint()

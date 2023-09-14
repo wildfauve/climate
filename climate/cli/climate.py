@@ -30,7 +30,7 @@ def add_temperature(locale, minimum, maximum, date):
 
 @click.command()
 @click.option("--locale", "-l", type=str)
-@click.option("--terms", "-t", multiple=True, type=click.Choice(helpers.narrative_term_names()))
+@click.option("--terms", "-t", multiple=True)
 @click.option("--date", "-d", required=False, help="Reading Date")
 def add_narrative(locale, terms, date):
     """

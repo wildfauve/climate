@@ -1,5 +1,9 @@
 TZ = "Pacific/Auckland"
 
-from . import temperature, locale, weather_narrative, helpers
-
-
+from . import (
+    helpers,
+    locale,
+    narrative_parser,
+    temperature,
+    weather_narrative
+)
