@@ -31,7 +31,7 @@ def _add_narrative(g, sub, statement):
     bn = BNode()
     g.add((sub, rdf.hasWeatherNarrativeStatement, bn))
     g.add((bn, RDF.type, rdf.WeatherNarrativeStatement))
-    g.add((bn, rdf.isStatementOnWeatherPhenomenon, statement.noun.value[0]))
+    g.add((bn, rdf.isStatementOnWeatherPhenomenon, statement.noun))
     for temp_adj in statement.temporal_adjectives:
         _add_temporal_adjective(g, bn, temp_adj)
     return g

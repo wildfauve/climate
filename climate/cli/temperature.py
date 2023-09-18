@@ -20,24 +20,13 @@ def cli():
 @click.option("--minimum", "-n", type=Decimal)
 @click.option("--maximum", "-x", type=Decimal)
 @click.option("--date", "-d", required=False, help="Reading Date")
-def add_temperature(locale, minimum, maximum, date):
+def add(locale, minimum, maximum, date):
     """
     Add a new daily min/max temperature reading.
     """
     command.add_temperature(locale, minimum, maximum, date)
     pass
 
-
-@click.command()
-@click.option("--locale", "-l", type=str)
-@click.option("--terms", "-t", multiple=True)
-@click.option("--date", "-d", required=False, help="Reading Date")
-def add_narrative(locale, terms, date):
-    """
-    Add a waether narrative using defined terms
-    """
-    command.add_narrative(locale, terms, date)
-    pass
 
 
 @click.command()
@@ -51,6 +40,5 @@ def plot(channel):
 
 
 
-cli.add_command(add_temperature)
-cli.add_command(add_narrative)
+cli.add_command(add)
 cli.add_command(plot)

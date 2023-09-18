@@ -16,6 +16,7 @@ TEMPORAL_TERM = rdf.plz_cl_nar.TemporalTerm
 
 
 class RainTerms(Enum):
+    DRY = RAIN + "/Dry"
     DROPS = RAIN + "Drops"
     SHOWERS = RAIN + "/Showers"
     HEAVY = RAIN + "/Heavy"
@@ -76,7 +77,7 @@ class NarrativeStatement:
     temporal_adjectives: List[TemporalAdjectiveCollection]
 
 
-def parse(component: str):
+def parse(component: str) -> NarrativeStatement:
     minified_component = _remove_fill(component)
     noun, adj_type = _noun(minified_component).value
     return NarrativeStatement(noun=noun,
@@ -111,5 +112,6 @@ def _individual_adjective(group: str, adj_type):
 
 def _term_or_none(term, term_type: Enum):
     if term not in term_type.__members__:
+        breakpoint()
         return None
     return term_type[term]
