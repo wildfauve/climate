@@ -1,6 +1,8 @@
 from typing import List
 from pathlib import Path
 
+# import seaborn as sns
+
 import matplotlib.pyplot as plt
 import matplotlib.path as mpath
 import matplotlib.dates as mdates
@@ -15,6 +17,8 @@ markers = Line2D.filled_markers
 temp_file_root = Path("_temp")
 
 def locale_temperatures(df):
+    # pdf = df.to_pandas()
+    # breakpoint()
     # _create_plot_2("_temp/temps.png", df, days=df.columns[1:])
     return monad.Right(_create_plot(_file(), df))
 
