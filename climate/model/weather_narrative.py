@@ -3,7 +3,7 @@ from typing import List, Union
 from dataclasses import dataclass
 
 import pendulum
-from rdflib import URIRef
+from rdflib import URIRef, Literal
 from clojos_common.util import monad
 
 from climate import model, repo, rdf
@@ -42,3 +42,18 @@ def _record_sub(locale: model.locale.Locale, date) -> URIRef:
 
 def _to_statements(terms: List[str]) -> List[model.narrative_parser.TemporalAdjectiveCollection]:
     return [model.narrative_parser.parse(term) for term in terms]
+
+
+def fix(g: repo.GraphRepo):
+    return change_date_strategy(g)
+
+def change_date_strategy(g: repo.GraphRepo):
+    all_recs = repo.narrative.get_all_narratives(g)
+    for s, _, _ in all_recs:
+        triples = rdf.all_matching(g, (s, None, None))
+        on_dt = rdf.triple_finder(rdf.isRecordedOnDateTime, triples, builder=rdf.literal_time_triple_parser)
+        for_d = rdf.triple_finder(rdf.isRecordedForDate, triples)
+        if not for_d:
+            g.set((s, rdf.isRecordedForDate, Literal(on_dt.date())))
+            g.set((s, rdf.isRecordedOnDateTime, Literal(on_dt.add(days=1, hours=8))))
+    return monad.Right(g)

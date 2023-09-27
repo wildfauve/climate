@@ -6,7 +6,7 @@ from functools import reduce, partial
 from decimal import Decimal
 
 import pendulum
-from rdflib import URIRef, Graph
+from rdflib import URIRef, Graph, Literal
 from clojos_common.util import monad, tokeniser
 
 from climate import model, repo, rdf
@@ -88,3 +88,20 @@ def _create_blank_recording(locale, datetime):
                                    maximum=None,
                                    locale=locale,
                                    recorded_at=datetime)
+
+
+## FIXES
+
+def fix(g: repo.GraphRepo):
+    return change_date_strategy(g)
+
+def change_date_strategy(g: repo.GraphRepo):
+    all_recs = repo.temperature.get_all_temperature_records(g)
+    for s, _, _ in all_recs:
+        triples = rdf.all_matching(g, (s, None, None))
+        on_dt = rdf.triple_finder(rdf.isRecordedOnDateTime, triples, builder=rdf.literal_time_triple_parser)
+        for_d = rdf.triple_finder(rdf.isRecordedForDate, triples)
+        if not for_d:
+            g.set((s, rdf.isRecordedForDate, Literal(on_dt.date())))
+            g.set((s, rdf.isRecordedOnDateTime, Literal(on_dt.add(days=1, hours=8))))
+    return monad.Right(g)

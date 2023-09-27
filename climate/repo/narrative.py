@@ -18,6 +18,10 @@ def upsert(g: repo.GraphRepo, narrative_record) -> monad.EitherMonad:
                                       update_fn=partial(_updater, narrative_record))
 
 
+def get_all_narratives(g: repo.GraphRepo):
+    return rdf.all_matching(g, (None, RDF.type, rdf.WeatherNarrative))
+
+
 def _creator(narrative_record, g: repo.GraphRepo, sub) -> monad.EitherMonad:
     g.add((sub, RDF.type, rdf.WeatherNarrative))
     g.add((sub, rdf.recordedAtLocale, narrative_record.locale.subject))

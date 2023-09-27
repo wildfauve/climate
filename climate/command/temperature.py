@@ -16,6 +16,15 @@ def add_temperature(locale, minimum, maximum, date=None) -> monad.EitherMonad[Di
     return result
 
 
+
+@commanda.command(graph_names=['climate_graph'])
+def temperature_fix() -> monad.EitherMonad[Dict]:
+    g = helpers.climate_graph()
+    result = model.temperature.fix(g=g)
+    return result
+
+
+
 def plot_temperatures(channel: str):
     g = helpers.climate_graph()
     result = plot.temperature_plot.locale_temperatures(df=dataframe.temperature.locale_temperatures(g))

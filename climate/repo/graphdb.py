@@ -24,6 +24,15 @@ class GraphRepo:
         """
         return self.graph.triples(triples)
 
+    def set(self, triples: Tuple):
+        """
+        Proxy for RDFLIB set
+        :param sparql:
+        :return:
+        """
+        return self.graph.set(triples)
+
+
     def query(self, sparql: str):
         """
         Proxy for RDFLIB sparql query

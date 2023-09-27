@@ -4,9 +4,11 @@ from .locale import (
 
 from .temperature import (
     add_temperature,
-    plot_temperatures
+    plot_temperatures,
+    temperature_fix
 )
 
 from .narrative import (
-    add_narrative
+    add_narrative,
+    narrative_fix
 )

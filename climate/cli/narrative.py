@@ -27,4 +27,14 @@ def add(locale, terms, date):
     pass
 
 
+@click.command()
+def fix():
+    """
+    Any FIX entrypoint
+    """
+    command.narrative_fix()
+    pass
+
+
 cli.add_command(add)
+cli.add_command(fix)

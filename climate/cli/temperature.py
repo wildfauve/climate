@@ -30,6 +30,16 @@ def add(locale, minimum, maximum, date):
 
 
 @click.command()
+def fix():
+    """
+    Any FIX entrypoint
+    """
+    command.temperature_fix()
+    pass
+
+
+
+@click.command()
 @click.option("--channel", "-c", default='terminal', type=click.Choice(helpers.channels()))
 def plot(channel):
     """
@@ -42,3 +52,4 @@ def plot(channel):
 
 cli.add_command(add)
 cli.add_command(plot)
+cli.add_command(fix)

@@ -44,12 +44,15 @@ def all_objects(triple_collection: List[Tuple]):
     return [o for _, _, o in triple_collection]
 
 
-def object_ind(triple: Tuple):
-    _, _, o = triple
-    return o
+def obj(triple):
+    return triple[2]
 
 
-def triple_finder(term, t_map: List[Tuple], filter_fn=fn.find, cond=_predicate_eq, builder=object_ind):
+def subject(triple):
+    return triple[0]
+
+
+def triple_finder(term, t_map: List[Tuple], filter_fn=fn.find, cond=_predicate_eq, builder=obj):
     """
     Takes a triples map and applies a filter fn and a condition to return either
     a List[(s,p,o)] if builder=object_collection
@@ -63,14 +66,6 @@ def triple_finder(term, t_map: List[Tuple], filter_fn=fn.find, cond=_predicate_e
     return builder((None, None, None))
 
 
-def object(triple):
-    return triple[2]
-
-
-def subject(triple):
-    return triple[0]
-
-
 def subjects(g: Graph) -> Set[URIRef]:
     """
     Returns a set of unique subjects in a Graph
@@ -82,7 +77,7 @@ def object_for_property(g: Graph, predicate: URIRef, ) -> Union[URIRef, Literal]
     """
     Extracts the object for a property
     """
-    return first_match(g, (None, predicate, None), object)
+    return first_match(g, (None, predicate, None), obj)
 
 
 def first_match(g, pattern: Tuple, form=fn.identity) -> Union[Tuple, URIRef, Literal]:
@@ -100,16 +95,21 @@ def all_matching(g, pattern: Tuple, form=fn.identity) -> List[Tuple]:
     return [form(t) for t in g.triples(pattern)]
 
 
-def literal_time(time_literal: Literal) -> Optional[str]:
-    if not time_literal:
-        return None
-    iso_time = safe_time_convert(time_literal)
-    return iso_time.value if iso_time.is_right else None
+@monad.monadic_try()
+def safe_time_convert(time_literal: Literal):
+    return time_literal.value.isoformat()
 
 
 @monad.monadic_try()
-def safe_time_convert(time_literal):
-    return time_literal.value.isoformat()
+def safe_datetime_to_pendulum(time_literal: Literal):
+    return pendulum.instance(time_literal.value)
+
+
+def literal_time(time_literal: Literal, converter: Callable = safe_time_convert) -> Optional[str]:
+    if not time_literal:
+        return None
+    iso_time = converter(time_literal)
+    return iso_time.value if iso_time.is_right else None
 
 
 @monad.monadic_try()
@@ -121,6 +121,9 @@ def safe_date_convert(date: str):
 def safe_time_parser(time_str: str) -> monad.EitherMonad[pendulum.DateTime]:
     return pendulum.parse(time_str)
 
+
+def literal_time_triple_parser(triple: Tuple):
+    return literal_time(obj(triple), converter=safe_datetime_to_pendulum)
 
 def price_label(amt: URIRef, ccy: URIRef) -> str:
     # TODO: Add the rdf-cty-ccy lib

@@ -34,6 +34,9 @@ def get_all(g: repo.GraphRepo):
     results = rdf.many(rdf.query(g, _by_locale_by_date_query()))
     return [_to_dto(record) for record in results]
 
+def get_all_temperature_records(g: repo.GraphRepo):
+    return rdf.all_matching(g, (None, RDF.type, rdf.MinMaxTemperatureRecord))
+
 def _creator(temp_record, g: repo.GraphRepo, sub) -> monad.EitherMonad:
     g.add((sub, RDF.type, rdf.MinMaxTemperatureRecord))
     g.add((sub, rdf.recordedAtLocale, temp_record.locale.subject))
