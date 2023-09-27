@@ -4,12 +4,16 @@ import polars as pl
 
 from climate import model, repo
 
+schema = {'Locale': pl.Utf8,
+          'RecordedAt': pl.Datetime(time_zone=model.TZ),
+          'RecordedFor': pl.Date,
+          'Min': pl.Decimal,
+          'Max': pl.Decimal}
+
 
 def locale_temperatures(g: repo.GraphRepo):
-    all_records = model.temperature.get_all(g)
-    breakpoint()
-    return pl.DataFrame(_build_series_2(all_records), schema=['Locale', 'RecordedAt', 'Min', 'Max'])
-    # return pl.DataFrame(_build_series(all_records))
+    records = model.temperature.get_all(g)
+    return pl.DataFrame(_build_series_2(records), schema=schema)
 
 
 def _build_series_2(all_records):
@@ -17,9 +21,9 @@ def _build_series_2(all_records):
 
 
 def _build_rec(record):
-    breakpoint()
     return [record.locale.name,
             record.recorded_at,
+            record.recorded_for,
             float(record.minimum) if record.minimum else None,
             float(record.maximum) if record.maximum else None]
 

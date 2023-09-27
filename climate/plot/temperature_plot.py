@@ -16,10 +16,13 @@ markers = Line2D.filled_markers
 
 temp_file_root = Path("_temp")
 
+TITLE = "Min Max Temperature @ Locale"
+X_TITLE = "Recorded For 24 Hour Period (~0800 Recorded For Day -> ~0800 Day + 1)"
+Y_TITLE = "Temperate (Celsius)"
+
+
+
 def locale_temperatures(df):
-    # pdf = df.to_pandas()
-    # breakpoint()
-    # _create_plot_2("_temp/temps.png", df, days=df.columns[1:])
     return monad.Right(_create_plot(_file(), df))
 
 
@@ -27,13 +30,10 @@ def _file():
     return temp_file_root / f"locale_daily_temperature_{pendulum.now().to_date_string()}.png"
 
 def _create_plot(file, df):
-    breakpoint()
-    dates = _unique_recorded_at(df)
+    dates = _unique_recorded_for(df)
     locales = _unique_locales(df)
 
-    breakpoint()
-
-    fig, ax = _plot_figure("Days", dates)
+    fig, ax = _plot_figure(X_TITLE, dates)
 
     for locale in locales:
         locale_df = _filter_locale(df, locale)
@@ -42,26 +42,10 @@ def _create_plot(file, df):
             label = f"{locale}-{temp_type}"
             ax.plot(dates, values, label=label, marker=_to_marker(label))
 
-    ax.set_title("Min Max Temperature @ Locale")  # Add a title to the axes.
+    ax.set_title(TITLE)  # Add a title to the axes.
     ax.legend(bbox_to_anchor=(1.1, 1.05), fancybox=True, shadow=True)  # Add a legend.
     fig.savefig(file)
     return file
-
-
-def _create_plot_2(file, df, days):
-    dates = [pendulum.parse(d) for d in days]
-
-    np_arr = df.to_numpy()
-
-    fig, ax = _plot_figure("Days", dates)
-
-    for locale_temps in np_arr:
-        breakpoint()
-        ax.plot(dates, locale_temps[1:], label=locale_temps[0], marker=_to_marker(locale_temps[0]))
-
-    ax.set_title("Min Max Temperature @ Locale")  # Add a title to the axes.
-    ax.legend(bbox_to_anchor=(1.1, 1.05), fancybox=True, shadow=True)  # Add a legend.
-    fig.savefig(file)
 
 
 def _plot_figure(name, dates):
@@ -71,7 +55,7 @@ def _plot_figure(name, dates):
     ax.set_xlabel(name)  # Add an x-label to the axes.
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%d-%m'))
 
-    ax.set_ylabel('Temperature Celsius')  # Add a y-label to the axes.
+    ax.set_ylabel(Y_TITLE)  # Add a y-label to the axes.
 
     ax.grid(True)
     return fig, ax
@@ -81,10 +65,10 @@ def _to_marker(locale):
     return markers[hash(locale) % 16]
 
 
-def _unique_recorded_at(df):
-    unique_dates = (df.unique(subset=['RecordedAt'])
-                    .sort(pl.col('RecordedAt'))
-                    .select(pl.col('RecordedAt')).rows())
+def _unique_recorded_for(df):
+    unique_dates = (df.unique(subset=['RecordedFor'])
+                    .sort(pl.col('RecordedFor'))
+                    .select(pl.col('RecordedFor')).rows())
     return [date[0] for date in unique_dates]
 
 

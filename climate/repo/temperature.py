@@ -18,6 +18,7 @@ class TemperatureDTO:
     maximum: Decimal
     minimum: Decimal
     recorded_at: pendulum.DateTime
+    recorded_for: pendulum.Date
     locale_subject: URIRef
     locale_name: str
 
@@ -42,7 +43,7 @@ def _creator(temp_record, g: repo.GraphRepo, sub) -> monad.EitherMonad:
     g.add((sub, rdf.recordedAtLocale, temp_record.locale.subject))
     g.add((sub, rdf.hasDailyMaximum, Literal(temp_record.maximum)))
     g.add((sub, rdf.hasDailyMinimum, Literal(temp_record.minimum)))
-    g.add((sub, rdf.isRecordedOnDateTime, Literal(temp_record.recorded_at)))
+    g.add((sub, rdf.isRecordedAtDateTime, Literal(temp_record.recorded_at)))
     g.add((sub, rdf.isRecordedForDate, Literal(temp_record.recorded_for)))
     return monad.Right(g)
 
@@ -52,10 +53,14 @@ def _updater(temp_record, g: repo.GraphRepo, sub):
 
 
 def _to_dto(record):
+    # if not record.for_date:
+    #     breakpoint()
+    # breakpoint()
     return TemperatureDTO(subject=record.rec,
                           minimum=record.min.toPython(),
                           maximum=record.max.toPython(),
-                          recorded_at=pendulum.instance(record.datetime.toPython()),
+                          recorded_at=pendulum.instance(record.at_datetime.toPython()),
+                          recorded_for=record.for_date.toPython(),
                           locale_subject=record.locale,
                           locale_name=record.locale_name.toPython())
 
@@ -66,7 +71,8 @@ def _by_locale_by_date_query():
     ?rec a plz-cl:MinMaxTemperatureRecord ;
   		 plz-cl:hasDailyMaximum ?max ;
     	 plz-cl:hasDailyMinimum ?min ;
-     	 plz-cl:isRecordedOnDateTime ?datetime ;
+     	 plz-cl:isRecordedAtDateTime ?at_datetime ;
+     	 plz-cl:isRecordedForDate ?for_date ;
       	 plz-cl:recordedAtLocale ?locale .
       
     ?locale foaf:name ?locale_name . 

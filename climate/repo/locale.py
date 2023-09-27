@@ -28,6 +28,10 @@ def find_by_name(g: repo.GraphRepo, name):
     return _to_locale(rdf.first_match(g, (None, rdf.name, Literal(name))))
 
 
+def find_by_sub(g: repo.GraphRepo, sub):
+    return _to_locale(rdf.first_match(g, (sub, rdf.name, None)))
+
+
 def _creator(locale, g: repo.GraphRepo, sub) -> monad.EitherMonad:
     g.add((sub, RDF.type, rdf.Locale))
     g.add((sub, rdf.name, Literal(locale.name)))

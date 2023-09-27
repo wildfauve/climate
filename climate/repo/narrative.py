@@ -25,7 +25,7 @@ def get_all_narratives(g: repo.GraphRepo):
 def _creator(narrative_record, g: repo.GraphRepo, sub) -> monad.EitherMonad:
     g.add((sub, RDF.type, rdf.WeatherNarrative))
     g.add((sub, rdf.recordedAtLocale, narrative_record.locale.subject))
-    g.add((sub, rdf.isRecordedOnDateTime, Literal(narrative_record.recorded_at)))
+    g.add((sub, rdf.isRecordedAtDateTime, Literal(narrative_record.recorded_at)))
     for statement in narrative_record.narrative_statements:
         _add_narrative(g, sub, statement)
     return monad.Right(g)
