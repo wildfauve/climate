@@ -32,6 +32,10 @@ def find_by_sub(g: repo.GraphRepo, sub):
     return _to_locale(rdf.first_match(g, (sub, rdf.name, None)))
 
 
+def get_all(g: repo.GraphRepo):
+    return [find_by_sub(g, sub) for sub in rdf.all_matching(g, (None, RDF.type, rdf.Locale), form=rdf.subject)]
+
+
 def _creator(locale, g: repo.GraphRepo, sub) -> monad.EitherMonad:
     g.add((sub, RDF.type, rdf.Locale))
     g.add((sub, rdf.name, Literal(locale.name)))

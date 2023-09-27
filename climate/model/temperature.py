@@ -22,7 +22,11 @@ class MinMaxTemperatureRecord:
     recorded_at: Optional[pendulum.DateTime] = None
 
 
-def record(g: repo.GraphRepo, locale: str, minimum: Decimal, maximum: Decimal, for_date=None):
+def record(g: repo.GraphRepo,
+           locale: Union[str, model.locale.Locale],
+           minimum: Decimal,
+           maximum: Decimal,
+           for_date=None):
     temp_record = _to_model(g, locale, minimum, maximum, for_date)
     if result := repo.temperature.upsert(g, temp_record):
         return monad.Right(temp_record)
@@ -34,7 +38,7 @@ def get_all(g: repo.GraphRepo) -> groupby:
 
 
 def _from_dto(record):
-    locale = model.locale.to_locale(name=record.locale_name, subject=record.locale_subject)
+    locale = model.locale._to_locale_result(name=record.locale_name, subject=record.locale_subject)
     return MinMaxTemperatureRecord(subject=record.subject,
                                    minimum=record.minimum,
                                    maximum=record.maximum,
@@ -44,11 +48,11 @@ def _from_dto(record):
 
 
 def _to_model(g: repo.GraphRepo,
-              locale_name: str,
+              locale: Union[str, model.locale.Locale],
               minimum: Decimal,
               maximum: Decimal,
               for_date: str = None):
-    locale = model.locale.locale_from_name(g, locale_name)
+    locale = model.locale.locale_from_name(g, locale)
     if locale.is_left():
         breakpoint()
     record_date = model.helpers.record_date(for_date)

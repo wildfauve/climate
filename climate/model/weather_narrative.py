@@ -17,20 +17,17 @@ class WeatherNarrativeRecord:
     recorded_at: pendulum.Date
 
 
-def record(g: repo.GraphRepo, locale: str, terms: List[str], date=None):
-    narrative_record = _to_model(g, locale, terms, date)
+def record(g: repo.GraphRepo, locale: model.locale.Locale, terms: List[str], date=None):
+    narrative_record = _to_model(locale, terms, date)
     if result := repo.narrative.upsert(g, narrative_record):
         return monad.Right(narrative_record)
     breakpoint()
 
 
-def _to_model(g: repo.GraphRepo, locale_name: str, terms: List[str], date: str = None):
-    locale = model.locale.locale_from_name(g, locale_name)
-    if locale.is_left():
-        breakpoint()
+def _to_model(locale: model.locale.Locale, terms: List[str], date: str = None):
     record_date = model.helpers.record_date(date)
-    return WeatherNarrativeRecord(subject=_record_sub(locale.value, record_date),
-                                  locale=locale.value,
+    return WeatherNarrativeRecord(subject=_record_sub(locale, record_date),
+                                  locale=locale,
                                   narrative_statements=_to_statements(terms),
                                   recorded_at=record_date)
 

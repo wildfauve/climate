@@ -3,7 +3,7 @@ from decimal import Decimal
 
 from climate.initialiser import environment, db
 
-from climate import command
+from climate import command, presenter
 
 from . import helpers
 
@@ -16,18 +16,26 @@ def cli():
 
 
 @click.command()
-@click.option("--locale", "-l", type=str)
-@click.option("--minimum", "-n", type=Decimal)
-@click.option("--maximum", "-x", type=Decimal)
-@click.option("--date", "-d", required=False, help="Reading Date", prompt=True, default=helpers.default_record_date())
-def add(locale, minimum, maximum, date):
+@click.option("--minimum", "-n",
+              type=Decimal,
+              required=True,
+              prompt=True)
+@click.option("--maximum", "-x",
+              type=Decimal,
+              required=True,
+              prompt=True)
+@click.option("--date", "-d",
+              required=False,
+              help="Reading Date",
+              prompt=True,
+              default=helpers.default_record_date())
+def add(minimum, maximum, date):
     """
     Add a new daily min/max temperature reading.
     """
+    locale = helpers.get_locale_from_input()
     command.add_temperature(locale, minimum, maximum, date)
     pass
-
-
 
 @click.command()
 def fix():

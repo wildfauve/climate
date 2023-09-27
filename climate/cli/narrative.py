@@ -15,15 +15,14 @@ def cli():
 
 
 @click.command()
-@click.option("--locale", "-l", type=str)
-@click.option("--terms", "-t", multiple=True)
 @click.option("--date", "-d", required=False, help="Reading Date", prompt=True, default=helpers.default_record_date())
-def add(locale, terms, date):
+def add(date):
     """
-    Add a waether narrative using defined terms
+    Add a weather narrative using defined terms
     """
-    # x = click.prompt("And...", type=int, default=2)
-    command.add_narrative(locale, terms, date)
+    command.add_narrative(locale=helpers.get_locale_from_input(),
+                          terms=helpers.get_narrative_terms_from_import(),
+                          date=date)
     pass
 
 

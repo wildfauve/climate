@@ -52,6 +52,7 @@ class NarrativeNoun(Enum):
     SKY = (SKY, SkyTerms)
     TEMPERATURE = (TEMPERATURE, TemperatureTerms)
 
+
 class TemporalTerm(Enum):
     DAY = TEMPORAL_TERM + "/Day"
     NIGHT = TEMPORAL_TERM + "/Night"
@@ -79,6 +80,10 @@ class NarrativeStatement:
     temporal_adjectives: List[TemporalAdjectiveCollection]
 
 
+def narrative_nouns():
+    return NarrativeNoun.__members__.keys()
+
+
 def parse(component: str) -> NarrativeStatement:
     minified_component = _remove_fill(component)
     noun, adj_type = _noun(minified_component).value
@@ -88,6 +93,7 @@ def parse(component: str) -> NarrativeStatement:
 
 def _remove_fill(component: str) -> str:
     return component.replace(" ", "")
+
 
 def _noun(component: str) -> Tuple:
     search = noun_concept.search(component)

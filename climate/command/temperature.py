@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Union
 
 from clojos_common.util import monad
 
@@ -6,7 +6,7 @@ from climate import initialiser, model, dataframe, plot, presenter, adapter
 from climate.command import helpers, commanda
 
 @commanda.command(graph_names=['climate_graph'])
-def add_temperature(locale, minimum, maximum, date=None) -> monad.EitherMonad[Dict]:
+def add_temperature(locale: Union[str, model.locale.Locale], minimum, maximum, date=None) -> monad.EitherMonad[Dict]:
     g = helpers.climate_graph()
     result = model.temperature.record(g=g,
                                       locale=locale,
