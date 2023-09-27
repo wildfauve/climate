@@ -12,7 +12,7 @@ def add_temperature(locale, minimum, maximum, date=None) -> monad.EitherMonad[Di
                                       locale=locale,
                                       minimum=minimum,
                                       maximum=maximum,
-                                      date=date)
+                                      for_date=date)
     return result
 
 

@@ -18,11 +18,12 @@ class MinMaxTemperatureRecord:
     minimum: Decimal
     maximum: Decimal
     locale: model.locale.Locale
-    recorded_at: pendulum.Date
+    recorded_at: pendulum.DateTime
+    recorded_for: pendulum.Date
 
 
-def record(g: repo.GraphRepo, locale: str, minimum: Decimal, maximum: Decimal, date=None):
-    temp_record = _to_model(g, locale, minimum, maximum, date)
+def record(g: repo.GraphRepo, locale: str, minimum: Decimal, maximum: Decimal, for_date=None):
+    temp_record = _to_model(g, locale, minimum, maximum, for_date)
     if result := repo.temperature.upsert(g, temp_record):
         return monad.Right(temp_record)
     breakpoint()
@@ -41,19 +42,24 @@ def _from_dto(record):
                                    recorded_at=record.recorded_at)
 
 
-def _to_model(g: repo.GraphRepo, locale_name: str, minimum: Decimal, maximum: Decimal, date: str = None):
+def _to_model(g: repo.GraphRepo,
+              locale_name: str,
+              minimum: Decimal,
+              maximum: Decimal,
+              for_date: str = None):
     locale = model.locale.locale_from_name(g, locale_name)
     if locale.is_left():
         breakpoint()
-    record_date = model.helpers.record_date(date)
+    record_date = model.helpers.record_date(for_date)
     return MinMaxTemperatureRecord(subject=_record_sub(locale.value, record_date),
                                    minimum=minimum,
                                    maximum=maximum,
                                    locale=locale.value,
-                                   recorded_at=record_date)
+                                   recorded_at=pendulum.now(tz=model.TZ),
+                                   recorded_for=record_date)
 
 
-def _record_sub(locale: model.locale.Locale, date) -> URIRef:
+def _record_sub(locale: model.locale.Locale, date: pendulum.Date) -> URIRef:
     _, date_form = rdf.month_day_from_datetime(date)
     return rdf.plz_cl_ind_tem[locale.symbolised_name()] + "/" + date_form
 

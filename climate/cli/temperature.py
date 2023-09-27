@@ -19,7 +19,7 @@ def cli():
 @click.option("--locale", "-l", type=str)
 @click.option("--minimum", "-n", type=Decimal)
 @click.option("--maximum", "-x", type=Decimal)
-@click.option("--date", "-d", required=False, help="Reading Date")
+@click.option("--date", "-d", required=False, help="Reading Date", prompt=True, default=helpers.default_record_date())
 def add(locale, minimum, maximum, date):
     """
     Add a new daily min/max temperature reading.

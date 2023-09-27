@@ -140,7 +140,7 @@ def coerce_uri(uri: URIRef) -> Optional[str]:
 
 
 def month_day_from_datetime(datetime) -> Tuple[str, str]:
-    if isinstance(datetime, pendulum.DateTime):
+    if isinstance(datetime, pendulum.DateTime) or isinstance(datetime, pendulum.Date):
         return datetime.format("YYYY-MM"), datetime.to_date_string()
     time = safe_time_convert(datetime) >> safe_time_parser
     if time.is_left():

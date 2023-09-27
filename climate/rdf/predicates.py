@@ -8,6 +8,7 @@ recordedAtLocale = plz_cl.recordedAtLocale
 hasDailyMaximum = plz_cl.hasDailyMaximum
 hasDailyMinimum = plz_cl.hasDailyMinimum
 isRecordedOnDateTime = plz_cl.isRecordedOnDateTime
+isRecordedForDate = plz_cl.isRecordedForDate
 hasWeatherNarrativeStatement = plz_cl_nar.hasWeatherNarrativeStatement
 isStatementOnWeatherPhenomenon = plz_cl_nar.isStatementOnWeatherPhenomenon
 hasTemporalAdjective = plz_cl_nar.hasTemporalAdjective

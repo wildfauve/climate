@@ -2,9 +2,9 @@ from typing import List
 from pathlib import Path
 
 # import seaborn as sns
+# import plotly.express as px
 
 import matplotlib.pyplot as plt
-import matplotlib.path as mpath
 import matplotlib.dates as mdates
 import pendulum
 import polars as pl
@@ -27,8 +27,11 @@ def _file():
     return temp_file_root / f"locale_daily_temperature_{pendulum.now().to_date_string()}.png"
 
 def _create_plot(file, df):
+    breakpoint()
     dates = _unique_recorded_at(df)
     locales = _unique_locales(df)
+
+    breakpoint()
 
     fig, ax = _plot_figure("Days", dates)
 
@@ -101,12 +104,12 @@ def _unique_locales(df):
     return [locale[0] for locale in unique_locales]
 
 
-def _markers2():
-    star = mpath.Path.unit_regular_star(6)
-    circle = mpath.Path.unit_circle()
-    # concatenate the circle with an internal cutout of the star
-    cut_star = mpath.Path(
-        vertices=np.concatenate([circle.vertices, star.vertices[::-1, ...]]),
-        codes=np.concatenate([circle.codes, star.codes]))
-
-    return {'star': star, 'circle': circle, 'cut_star': cut_star}
+# def _markers2():
+#     star = mpath.Path.unit_regular_star(6)
+#     circle = mpath.Path.unit_circle()
+#     # concatenate the circle with an internal cutout of the star
+#     cut_star = mpath.Path(
+#         vertices=np.concatenate([circle.vertices, star.vertices[::-1, ...]]),
+#         codes=np.concatenate([circle.codes, star.codes]))
+#
+#     return {'star': star, 'circle': circle, 'cut_star': cut_star}

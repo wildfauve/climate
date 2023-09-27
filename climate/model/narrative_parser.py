@@ -18,6 +18,7 @@ TEMPORAL_TERM = rdf.plz_cl_nar.TemporalTerm
 class RainTerms(Enum):
     DRY = RAIN + "/Dry"
     DROPS = RAIN + "Drops"
+    DRIZZLE = RAIN + "/Drizzle"
     SHOWERS = RAIN + "/Showers"
     HEAVY = RAIN + "/Heavy"
 
@@ -42,6 +43,7 @@ class TemperatureTerms(Enum):
 class SkyTerms(Enum):
     SUNNY = SKY + "/Sunny"
     OVERCAST = SKY + "/Overcast"
+    CLOUDY = SKY + "/Cloudy"
 
 
 class NarrativeNoun(Enum):

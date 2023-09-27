@@ -40,6 +40,7 @@ def _creator(temp_record, g: repo.GraphRepo, sub) -> monad.EitherMonad:
     g.add((sub, rdf.hasDailyMaximum, Literal(temp_record.maximum)))
     g.add((sub, rdf.hasDailyMinimum, Literal(temp_record.minimum)))
     g.add((sub, rdf.isRecordedOnDateTime, Literal(temp_record.recorded_at)))
+    g.add((sub, rdf.isRecordedForDate, Literal(temp_record.recorded_for)))
     return monad.Right(g)
 
 
