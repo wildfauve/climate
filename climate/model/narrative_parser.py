@@ -3,6 +3,8 @@ import re
 from dataclasses import dataclass
 from enum import Enum
 
+from clojos_common.util import monad
+
 from climate import rdf
 
 noun_concept = re.compile(r"(^\w*)\[")
@@ -44,6 +46,7 @@ class SkyTerms(Enum):
     SUNNY = SKY + "/Sunny"
     OVERCAST = SKY + "/Overcast"
     CLOUDY = SKY + "/Cloudy"
+    STORMY = SKY + "/Stormy"
 
 
 class NarrativeNoun(Enum):
@@ -87,8 +90,15 @@ def narrative_nouns():
 def parse(component: str) -> NarrativeStatement:
     minified_component = _remove_fill(component)
     noun, adj_type = _noun(minified_component).value
-    return NarrativeStatement(noun=noun,
-                              temporal_adjectives=_temporal_adjectives(minified_component, adj_type))
+    adjs = _temporal_adjectives(minified_component, adj_type)
+
+    if noun is None:
+        return monad.Left(f"Noun not found in term {component}")
+    if not all(adjs):
+        return monad.Left(f"Adjectives dont parse for {component}")
+
+    return monad.Right(NarrativeStatement(noun=noun,
+                                          temporal_adjectives=_temporal_adjectives(minified_component, adj_type)))
 
 
 def _remove_fill(component: str) -> str:
@@ -98,7 +108,7 @@ def _remove_fill(component: str) -> str:
 def _noun(component: str) -> Tuple:
     search = noun_concept.search(component)
     if not search:
-        breakpoint()
+        return (None, None)
     noun, *_ = search.groups()
     return _term_or_none(noun.upper(), NarrativeNoun)
 
@@ -113,6 +123,9 @@ def _temporal_adjectives(component: str, adj_type: Union[RainTerms]):
 
 def _individual_adjective(group: str, adj_type):
     adj_name, temporality = group.split(":")
+    term = _term_or_none(adj_name.upper(), adj_type)
+    if term is None:
+        return None
     return TemporalAdjectiveCollection(adjective=_term_or_none(adj_name.upper(), adj_type),
                                        temporal_statements=[_term_or_none(term.upper(), TemporalTerm) for term in
                                                             temporality.split(",")])
@@ -120,6 +133,5 @@ def _individual_adjective(group: str, adj_type):
 
 def _term_or_none(term, term_type: Enum):
     if term not in term_type.__members__:
-        breakpoint()
         return None
     return term_type[term]

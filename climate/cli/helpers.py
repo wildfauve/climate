@@ -38,7 +38,7 @@ def _prompt_for_locale_idx(all_locales):
 
 def get_narrative_terms_from_import():
     console_log, terms = reduce(_term_for_noun, model.narrative_parser.narrative_nouns(), (_console_input_file(), []))
-    _write_console_file(console_log)
+    _write_dict(console_save_file, console_log)
     return terms
 
 
@@ -47,12 +47,22 @@ def _term_for_noun(acc: List, noun):
     term = click.prompt(f"Narrative for {noun}", type=str,
                         default=_last_input(console_log, ['narrative', 'noun', noun.lower()]))
 
+    full_term = _noun_wrap(noun, term)
+    result = model.narrative_parser.parse(full_term)
+    if result.is_left():
+        console().print(f"Problem with the narrative; [bold magenta]{result.error()}")
+        return _term_for_noun(acc, noun)
+    _add_noun_to_log(console_log, noun, term)
+    return (console_log, terms + [_noun_wrap(noun, term)])
+
+
+def _add_noun_to_log(console_log, noun, term):
     current_logged_nouns = fn.deep_get(console_log, ['narrative', 'noun'])
     if not current_logged_nouns:
         console_log.update({'narrative': {'noun': {noun.lower(): term}}})
     else:
         console_log['narrative']['noun'].update({noun.lower(): term})
-    return (console_log, terms + [_noun_wrap(noun, term)])
+    pass
 
 
 def _noun_wrap(noun, term):
@@ -73,6 +83,6 @@ def _console_input_file():
     return objects
 
 
-def _write_console_file(log):
-    with console_save_file.open("w", encoding="UTF-8") as target:
-        json.dump(log, target)
+def _write_dict(file, struct):
+    with file.open("w", encoding="UTF-8") as target:
+        json.dump(struct, target, indent=4, sort_keys=True)
