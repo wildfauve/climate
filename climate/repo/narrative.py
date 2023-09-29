@@ -11,7 +11,6 @@ from climate import rdf, repo
 
 
 def upsert(g: repo.GraphRepo, narrative_record) -> monad.EitherMonad:
-    breakpoint()
     return rdf.subject_finder_creator(g,
                                       narrative_record.subject,
                                       rdf.MinMaxTemperatureRecord,

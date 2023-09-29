@@ -23,11 +23,13 @@ def record(g: repo.GraphRepo, locale: model.locale.Locale, terms: List[str], dat
               partial(repo.narrative.upsert, g))
 
     if result.is_right():
-        return result.value
+        return result
     breakpoint()
 
 
-def _to_model(locale: model.locale.Locale, terms: List[str], date: str = None):
+def _to_model(locale: model.locale.Locale,
+              terms: List[str],
+              date: str = None) -> monad.EitherMonad[WeatherNarrativeRecord]:
     record_date = model.helpers.record_date(date)
     stmt_results = _to_statements(terms)
     if any(map(monad.maybe_value_fail, stmt_results)):
