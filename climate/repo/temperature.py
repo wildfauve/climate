@@ -49,8 +49,10 @@ def _creator(temp_record, g: repo.GraphRepo, sub) -> monad.EitherMonad:
 
 
 def _updater(temp_record, g: repo.GraphRepo, sub):
-    breakpoint()
-
+    # Only updates min and max
+    g.set((sub, rdf.hasDailyMaximum, Literal(temp_record.maximum)))
+    g.set((sub, rdf.hasDailyMinimum, Literal(temp_record.minimum)))
+    return monad.Right(g)
 
 def _to_dto(record):
     # if not record.for_date:

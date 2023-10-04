@@ -68,7 +68,6 @@ class TemporalTerm(Enum):
     EARLY_EVENING = TEMPORAL_TERM + "/EarlyEvening"
     LATE_EVENING = TEMPORAL_TERM + "/LateEvening"
     EVENING = TEMPORAL_TERM + "/Evening"
-    OVER_NIGHT = TEMPORAL_TERM + "/OverNight"
 
 
 @dataclass
@@ -122,6 +121,8 @@ def _temporal_adjectives(component: str, adj_type: Union[RainTerms]):
 
 
 def _individual_adjective(group: str, adj_type):
+    if group.count(":") > 1:
+        return None
     adj_name, temporality = group.split(":")
     term = _term_or_none(adj_name.upper(), adj_type)
     if term is None:
