@@ -1,4 +1,4 @@
-from typing import List, Union, Tuple
+from typing import List, Union, Tuple, Optional
 import re
 from dataclasses import dataclass
 from enum import Enum
@@ -120,8 +120,8 @@ def _temporal_adjectives(component: str, adj_type: Union[RainTerms]):
     return [_individual_adjective(group, adj_type) for group in all_adjs.split(";")]
 
 
-def _individual_adjective(group: str, adj_type):
-    if group.count(":") > 1:
+def _individual_adjective(group: str, adj_type) -> Optional[TemporalAdjectiveCollection]:
+    if group.count(":") != 1:
         return None
     adj_name, temporality = group.split(":")
     term = _term_or_none(adj_name.upper(), adj_type)
