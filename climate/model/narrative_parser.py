@@ -1,9 +1,9 @@
-from typing import List, Union, Tuple, Optional
+from typing import List, Union, Tuple, Optional, Generic, TypeVar
 import re
 from dataclasses import dataclass
 from enum import Enum
 
-from clojos_common.util import monad
+from clojos_common.util import monad, fn
 
 from climate import rdf
 
@@ -86,16 +86,16 @@ def narrative_nouns():
     return NarrativeNoun.__members__.keys()
 
 
-def parse(component: str) -> NarrativeStatement:
+def parse(component: str) -> monad.Either[NarrativeStatement, str]:
     minified_component = _remove_fill(component)
     noun, adj_type = _noun(minified_component).value
     adjs = _temporal_adjectives(minified_component, adj_type)
-
     if noun is None:
         return monad.Left(f"Noun not found in term {component}")
     if not all(adjs):
         return monad.Left(f"Adjectives dont parse for {component}")
-
+    if not all([t for adj in adjs for t in adj.temporal_statements]):
+        return monad.Left(f"Adjectives dont parse for {component}")
     return monad.Right(NarrativeStatement(noun=noun,
                                           temporal_adjectives=_temporal_adjectives(minified_component, adj_type)))
 

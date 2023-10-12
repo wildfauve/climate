@@ -46,6 +46,8 @@ def _add_temporal_adjective(g, bn, temp_adj):
     g.add((bn, rdf.hasTemporalAdjective, temp_adj_bn))
     g.add((temp_adj_bn, rdf.hasAdjective, temp_adj.adjective.value))
     for temporal_statement in temp_adj.temporal_statements:
+        if not temporal_statement:
+            breakpoint()
         g.add((temp_adj_bn, rdf.hasTemporalExpression, temporal_statement.value))
 
 def _updater(temp_record, g: repo.GraphRepo, sub):
