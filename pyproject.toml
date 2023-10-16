@@ -6,6 +6,7 @@ authors = ["Col Perks <wild.fauve@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.scripts]
+climate = 'climate.cli.climate:run'
 locale = "climate.cli.locale:cli"
 temperature = "climate.cli.temperature:cli"
 narrative = "climate.cli.narrative:cli"

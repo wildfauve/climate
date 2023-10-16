@@ -1,6 +1,8 @@
 from typing import List
 from functools import reduce, partial
 from pathlib import Path
+from dataclasses import dataclass
+from decimal import Decimal
 import json
 
 import click
@@ -11,6 +13,25 @@ from climate import model, adapter, repo, presenter
 console_save_file = Path(__file__).parent.parent.parent / "_temp" / "console.json"
 
 
+@dataclass
+class ExitTerminator:
+    name: str
+
+    def is_exit(self):
+        return self.name == 'exit'
+
+    def is_finish(self):
+        return self.name == 'finish'
+
+
+def show_menu_and_prompt(menu):
+    cons = console()
+    for idx, (menu_name, _menu_fn) in menu.items():
+        cons.print(f"[bold red]{idx}. [magenta]{menu_name}")
+    _, menu_item = menu[_prompt_for_main_menu_idx(menu)]
+    return menu_item
+
+
 def channels():
     return [c.name.lower() for c in adapter.Channel]
 
@@ -19,13 +40,31 @@ def default_record_date():
     return model.helpers.default_day(format_as_date_str=True)
 
 
-def all_locales_indexed():
-    return [(idx, locale.value) for idx, locale in enumerate(model.locale.get_all(repo.graph('climate_graph')))]
+def prompt_for_date():
+    return click.prompt("Select Date", type=str, default=default_record_date())
+
+
+def prompt_for_temperature(reading_name):
+    return click.prompt(reading_name, type=Decimal)
+
+
+def all_locales_indexed(add_exit=False):
+    all_locales = [(idx, locale.value) for idx, locale in enumerate(model.locale.get_all(repo.graph('climate_graph')))]
+    if not add_exit:
+        return all_locales
+    return _add_terminations(all_locales)
+
+
+def _add_terminations(xs: List):
+    return xs + [
+        (len(xs), ExitTerminator(name='finish')),
+        (len(xs) + 1, ExitTerminator(name='exit'))
+    ]
 
 
 def get_locale_from_input():
     cons = console()
-    all_locales = all_locales_indexed()
+    all_locales = all_locales_indexed(add_exit=True)
     for idx, locale in all_locales:
         cons.print(f"[bold red]{idx}. [magenta]{locale.name}")
     _, locale = all_locales[_prompt_for_locale_idx(all_locales)]
@@ -34,6 +73,10 @@ def get_locale_from_input():
 
 def _prompt_for_locale_idx(all_locales):
     return int(click.prompt("Select Locale", type=click.Choice([str(idx) for idx, _ in all_locales])))
+
+
+def _prompt_for_main_menu_idx(menu):
+    return int(click.prompt("Select Menu Item", type=click.Choice([str(idx) for idx, _ in menu.items()])))
 
 
 def get_narrative_terms_from_import():
