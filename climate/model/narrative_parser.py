@@ -70,6 +70,20 @@ class TemporalTerm(Enum):
     EVENING = TEMPORAL_TERM + "/Evening"
 
 
+class TemporalShortCuts(Enum):
+    D = TemporalTerm.DAY
+    N = TemporalTerm.NIGHT
+    EM = TemporalTerm.EARLY_MORNING
+    LM = TemporalTerm.LATE_MORNING
+    M = TemporalTerm.MORNING
+    EA = TemporalTerm.EARLY_AFTERNOON
+    LA = TemporalTerm.LATE_AFTERNOON
+    A = TemporalTerm.AFTERNOON
+    EE = TemporalTerm.EARLY_EVENING
+    LE = TemporalTerm.LATE_EVENING
+    E = TemporalTerm.EVENING
+
+
 @dataclass
 class TemporalAdjectiveCollection:
     adjective: Union[RainTerms]
@@ -127,12 +141,18 @@ def _individual_adjective(group: str, adj_type) -> Optional[TemporalAdjectiveCol
     term = _term_or_none(adj_name.upper(), adj_type)
     if term is None:
         return None
-    return TemporalAdjectiveCollection(adjective=_term_or_none(adj_name.upper(), adj_type),
-                                       temporal_statements=[_term_or_none(term.upper(), TemporalTerm) for term in
-                                                            temporality.split(",")])
+    return TemporalAdjectiveCollection(
+        adjective=_term_or_none(adj_name.upper(), adj_type),
+        temporal_statements=[_term_or_none(term.upper(), TemporalTerm, TemporalShortCuts) for term in temporality.split(",")])
 
 
-def _term_or_none(term, term_type: Enum):
+def _term_or_none(term, term_type: Enum, short_cuts: Optional[Enum] = None):
     if term not in term_type.__members__:
-        return None
+        return _nothing_or_shortcut(term, short_cuts)
     return term_type[term]
+
+
+def _nothing_or_shortcut(term, short_cuts: Optional[Enum]):
+    if not short_cuts or term not in short_cuts.__members__:
+        return None
+    return short_cuts[term].value
