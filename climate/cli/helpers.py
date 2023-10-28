@@ -31,6 +31,8 @@ def show_menu_and_prompt(menu):
     _, menu_item = menu[_prompt_for_main_menu_idx(menu)]
     return menu_item
 
+def get_channel_from_input():
+    return click.prompt("Select A Channel", 'terminal', type=click.Choice(channels()))
 
 def channels():
     return [c.name.lower() for c in adapter.Channel]

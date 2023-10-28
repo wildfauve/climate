@@ -13,7 +13,7 @@ narrative = "climate.cli.narrative:cli"
 
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 rdflib = "^7.0.0"
 pymonad = "^2.4.0"
 clojos-common = {git = "https://github.com/wildfauve/clojos_common.git", rev = "main"}
@@ -24,9 +24,6 @@ click = "^8.1.7"
 rich = "^13.5.2"
 matplotlib = "^3.7.2"
 discord-webhook = "^1.3.0"
-pandas = "^2.1.0"
-seaborn = "^0.12.2"
-plotly = "^5.17.0"
 
 
 [tool.poetry.group.dev.dependencies]

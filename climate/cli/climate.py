@@ -32,19 +32,25 @@ def _temperatures(record_date):
 def _narrative(record_date):
     flow = None
     while True:
-        locale = helpers.get_locale_from_input()
-        if isinstance(locale, helpers.ExitTerminator):
-            flow = locale
+        locale_or_terminator = helpers.get_locale_from_input()
+        if isinstance(locale_or_terminator, helpers.ExitTerminator):
+            flow = locale_or_terminator
             break
-        command.add_narrative(locale=locale,
+        command.add_narrative(locale=locale_or_terminator,
                               terms=helpers.get_narrative_terms_from_import(),
                               date=record_date)
     return flow
 
 
+def _plot(_record_date):
+    channel = helpers.get_channel_from_input()
+    command.plot_temperatures(channel=channel)
+    return None
+
 def _main_menu():
     return {
         1: ('Add Temperatures', _temperatures),
         2: ('Add Narrative', _narrative),
+        4: ('Plot', _plot),
         3: ('Exit', None)
     }
