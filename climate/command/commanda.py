@@ -1,6 +1,8 @@
 from typing import List
 from . import helpers
 
+from clojos_common.util import logger
+
 
 class CommandRunner:
     def __init__(self):
@@ -29,6 +31,7 @@ def command(graph_names: List = []):
             result = fn(*args, **kwargs)
             opts = kwargs.get('opts', dict())
             if result and result.is_right() and not opts.get('in_runner', None):
+                logger.info(f"Saving: {', '.join(graph_names)}")
                 helpers.save(graph_names=graph_names)
             return result
 
