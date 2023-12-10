@@ -87,7 +87,7 @@ class TemporalShortCuts(Enum):
 @dataclass
 class TemporalAdjectiveCollection:
     adjective: Union[RainTerms]
-    temporal_statements: List[TemporalTerm]
+    temporal_statements: list[TemporalTerm]
 
 
 @dataclass
@@ -133,8 +133,8 @@ def _temporal_adjectives(component: str, adj_type: Union[RainTerms]):
     all_adjs, *_ = search.groups()
     return [_individual_adjective(group, adj_type) for group in all_adjs.split(";")]
 
-
-def _individual_adjective(group: str, adj_type) -> Optional[TemporalAdjectiveCollection]:
+def _individual_adjective(group: str, adj_type) -> TemporalAdjectiveCollection | None:
+# def _individual_adjective(group: str, adj_type) -> Optional[TemporalAdjectiveCollection]:
     if group.count(":") != 1:
         return None
     adj_name, temporality = group.split(":")
