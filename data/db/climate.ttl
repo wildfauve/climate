@@ -36,13 +36,6 @@
 
 <https://palazzo.io/ontology/Climate/Ind/Narrative/PalazzoBronzino/2024-01-03> a plz-cl:WeatherNarrative ;
     plz-cl-nar:hasWeatherNarrativeStatement [ a plz-cl-nar:Statement ;
-            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Dry> ;
-                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
-                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
-                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
-                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
-            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Rain ],
-        [ a plz-cl-nar:Statement ;
             plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/WIND/Light> ;
                     plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
                         <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
@@ -60,7 +53,14 @@
                         <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
                         <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
                         <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
-            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Temperature ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Temperature ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Dry> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Rain ] ;
     plz-cl:isRecordedAtDateTime "2024-01-03"^^xsd:date ;
     plz-cl:recordedAtLocale plz-cl-ind-loc:PalazzoBronzino .
 
@@ -344,11 +344,6 @@
 
 <https://palazzo.io/ontology/Climate/Ind/Narrative/PalazzoBronzino/2024-01-13> a plz-cl:WeatherNarrative ;
     plz-cl-nar:hasWeatherNarrativeStatement [ a plz-cl-nar:Statement ;
-            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Sky/Sunny> ;
-                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
-                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
-            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Sky ],
-        [ a plz-cl-nar:Statement ;
             plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Temperature/Hot> ;
                     plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
                         <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
@@ -368,7 +363,12 @@
                         <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
                         <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
                         <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
-            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:WIND ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:WIND ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Sky/Sunny> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Sky ] ;
     plz-cl:isRecordedAtDateTime "2024-01-13"^^xsd:date ;
     plz-cl:recordedAtLocale plz-cl-ind-loc:PalazzoBronzino .
 
@@ -2386,6 +2386,162 @@
     plz-cl:isRecordedAtDateTime "2024-03-27"^^xsd:date ;
     plz-cl:recordedAtLocale plz-cl-ind-loc:PalazzoBronzino .
 
+<https://palazzo.io/ontology/Climate/Ind/Narrative/PalazzoBronzino/2024-03-28> a plz-cl:WeatherNarrative ;
+    plz-cl-nar:hasWeatherNarrativeStatement [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Temperature/Warm> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Temperature ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Showers> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ],
+                [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Dry> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Rain ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Sky/Cloudy> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Sky ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/WIND/GaleForce> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ],
+                [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/WIND/Still> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ],
+                [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/WIND/Strong> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:WIND ] ;
+    plz-cl:isRecordedAtDateTime "2024-03-28"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:PalazzoBronzino .
+
+<https://palazzo.io/ontology/Climate/Ind/Narrative/PalazzoBronzino/2024-03-29> a plz-cl:WeatherNarrative ;
+    plz-cl-nar:hasWeatherNarrativeStatement [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Temperature/Cool> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Temperature ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/WIND/Light> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:WIND ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Sky/Cloudy> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Sky ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Showers> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Rain ] ;
+    plz-cl:isRecordedAtDateTime "2024-03-29"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:PalazzoBronzino .
+
+<https://palazzo.io/ontology/Climate/Ind/Narrative/PalazzoBronzino/2024-03-30> a plz-cl:WeatherNarrative ;
+    plz-cl-nar:hasWeatherNarrativeStatement [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Sky/Sunny> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Sky ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Dry> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ],
+                [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Showers> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Rain ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Temperature/Mild> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Temperature ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/WIND/Light> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:WIND ] ;
+    plz-cl:isRecordedAtDateTime "2024-03-30"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:PalazzoBronzino .
+
+<https://palazzo.io/ontology/Climate/Ind/Narrative/PalazzoBronzino/2024-03-31> a plz-cl:WeatherNarrative ;
+    plz-cl-nar:hasWeatherNarrativeStatement [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Showers> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ],
+                [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Dry> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Rain ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Sky/Sunny> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Sky ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Temperature/Mild> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Temperature ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/WIND/Light> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:WIND ] ;
+    plz-cl:isRecordedAtDateTime "2024-03-31"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:PalazzoBronzino .
+
+<https://palazzo.io/ontology/Climate/Ind/Narrative/PalazzoBronzino/2024-04-01> a plz-cl:WeatherNarrative ;
+    plz-cl-nar:hasWeatherNarrativeStatement [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Sky/Sunny> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Sky ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Temperature/Mild> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Temperature ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Showers> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ],
+                [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Rain/Dry> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:Rain ],
+        [ a plz-cl-nar:Statement ;
+            plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/WIND/Light> ;
+                    plz-cl-nar:hasTemporalExpression <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Afternoon>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Evening>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Morning>,
+                        <https://palazzo.io/ontology/Climate/NarrativeTerm/TemporalTerm/Night> ] ;
+            plz-cl-nar:isStatementOnWeatherPhenomenon plz-cl-nar:WIND ] ;
+    plz-cl:isRecordedAtDateTime "2024-04-01"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:PalazzoBronzino .
+
 <https://palazzo.io/ontology/Climate/Ind/Narrative/WivenhoeGardenPortico/2024-01-02> a plz-cl:WeatherNarrative ;
     plz-cl-nar:hasWeatherNarrativeStatement [ a plz-cl-nar:Statement ;
             plz-cl-nar:hasTemporalAdjective [ plz-cl-nar:hasAdjective <https://palazzo.io/ontology/Climate/NarrativeTerm/Sky/Sunny> ;
@@ -2962,6 +3118,41 @@
     plz-cl:isRecordedForDate "2024-03-27"^^xsd:date ;
     plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
 
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2024-03-28> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 27.9 ;
+    plz-cl:hasDailyMinimum 6.9 ;
+    plz-cl:isRecordedAtDateTime "2024-03-29T09:51:04.430910+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-03-28"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2024-03-29> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 42.6 ;
+    plz-cl:hasDailyMinimum 4.7 ;
+    plz-cl:isRecordedAtDateTime "2024-03-30T10:34:00.524363+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-03-29"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2024-03-30> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 46.1 ;
+    plz-cl:hasDailyMinimum 7.8 ;
+    plz-cl:isRecordedAtDateTime "2024-03-31T09:32:18.741307+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-03-30"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2024-03-31> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 39.3 ;
+    plz-cl:hasDailyMinimum 7.4 ;
+    plz-cl:isRecordedAtDateTime "2024-04-02T17:51:28.053248+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-03-31"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2024-04-01> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 45.8 ;
+    plz-cl:hasDailyMinimum 8.7 ;
+    plz-cl:isRecordedAtDateTime "2024-04-02T17:52:28.915042+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-04-01"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
 <https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2024-01-01> a plz-cl:MinMaxTemperatureRecord ;
     plz-cl:hasDailyMaximum 22.3 ;
     plz-cl:hasDailyMinimum 8.5 ;
@@ -3506,6 +3697,41 @@
     plz-cl:hasDailyMinimum 10.3 ;
     plz-cl:isRecordedAtDateTime "2024-03-28T08:12:52.969332+13:00"^^xsd:dateTime ;
     plz-cl:isRecordedForDate "2024-03-27"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2024-03-28> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 17.9 ;
+    plz-cl:hasDailyMinimum 8.0 ;
+    plz-cl:isRecordedAtDateTime "2024-03-29T09:51:14.262933+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-03-28"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2024-03-29> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 15.0 ;
+    plz-cl:hasDailyMinimum 7.1 ;
+    plz-cl:isRecordedAtDateTime "2024-03-30T10:34:12.368507+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-03-29"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2024-03-30> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 17.9 ;
+    plz-cl:hasDailyMinimum 8.0 ;
+    plz-cl:isRecordedAtDateTime "2024-03-31T09:32:31.408264+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-03-30"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2024-03-31> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 18.8 ;
+    plz-cl:hasDailyMinimum 9.2 ;
+    plz-cl:isRecordedAtDateTime "2024-04-02T17:51:40.156882+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-03-31"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2024-04-01> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 19.9 ;
+    plz-cl:hasDailyMinimum 10.4 ;
+    plz-cl:isRecordedAtDateTime "2024-04-02T17:52:42.788412+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2024-04-01"^^xsd:date ;
     plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
 
 plz-cl-ind-loc:PalazzoBronzino a plz-cl:Locale ;
