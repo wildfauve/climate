@@ -23,8 +23,8 @@ def _temperatures(record_date):
         if isinstance(locale, helpers.ExitTerminator):
             flow = locale
             break
-        minimum = helpers.prompt_for_temperature('Minimum')
-        maximum = helpers.prompt_for_temperature('Maximum')
+        minimum = helpers.prompt_for_temperature(f'{locale.name.toPython()}: Minimum')
+        maximum = helpers.prompt_for_temperature(f'{locale.name.toPython()}: Maximum')
         command.add_temperature(locale, minimum, maximum, record_date)
     return flow
 
