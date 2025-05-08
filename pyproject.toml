@@ -1,0 +1,44 @@
+[project]
+name = "climate"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Col Perks", email = "wild.fauve@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.1.8",
+    "clojos-common",
+    "discord-webhook>=1.4.1",
+    "matplotlib>=3.10.1",
+    "notebook>=7.4.2",
+    "pendulum>=3.1.0",
+    "polars>=1.29.0",
+    "pymonad>=2.4.0",
+    "python-dotenv>=1.1.0",
+    "rdflib>=7.1.4",
+    "rich>=13.9.4",
+]
+
+[tool.uv.sources]
+clojos-common = { git = "https://github.com/wildfauve/clojos_common.git" }
+
+[dependency-groups]
+dev = [
+    "pdbpp>=0.11.6",
+    "pytest>=8.3.5",
+    "pytest-env>=1.1.5",
+]
+
+
+[project.scripts]
+climate = 'climate.cli.climate:run'
+locale = "climate.cli.locale:cli"
+temperature = "climate.cli.temperature:cli"
+narrative = "climate.cli.narrative:cli"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

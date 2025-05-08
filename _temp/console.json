@@ -1,0 +1,10 @@
+{
+    "narrative": {
+        "noun": {
+            "rain": "dry:m,a,e,n",
+            "sky": "sunny:m,a",
+            "temperature": "cool:m,n;warm:e,a",
+            "wind": "light:m,a,e,n"
+        }
+    }
+}
