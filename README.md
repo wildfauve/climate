@@ -30,5 +30,5 @@ In the string form, this is codified as follows:
 In CLI form, we add this narrative as follows:
 
 ```shell
-poetry run climate add-narrative --locale "Palazzo Bronzino" --date 2023-09-14 -t "sky[sunny:morning;overcast:afternoon]" -t "wind[moderate:morning;gale_force:afternoon,evening,over_night]" -t "rain[drops:early_evening]" -t "temperature[mild:day,night]"
+uv run climate add-narrative --locale "Palazzo Bronzino" --date 2023-09-14 -t "sky[sunny:morning;overcast:afternoon]" -t "wind[moderate:morning;gale_force:afternoon,evening,over_night]" -t "rain[drops:early_evening]" -t "temperature[mild:day,night]"
 ```

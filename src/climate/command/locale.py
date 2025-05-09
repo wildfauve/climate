@@ -6,7 +6,7 @@ from climate import initialiser, model
 from climate.command import helpers, commanda
 
 
-@commanda.command(graph_names=['climate_graph'])
+@commanda.command(graph_name='climateGraph')
 def add_locale(name) -> monad.EitherMonad[Dict]:
     g = helpers.climate_graph()
     result = model.locale.create(g=g,

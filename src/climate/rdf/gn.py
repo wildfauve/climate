@@ -28,7 +28,7 @@ def subject_finder_creator(g: repo.GraphRepo,
                            type_of: URIRef,
                            creater_fn: Callable,
                            update_fn: Callable):
-    s, _, rdf_type = first_match(g.graph, (sub_uri, RDF.type, type_of))
+    s, _, rdf_type = first_match(g, (sub_uri, RDF.type, type_of))
     match (s, rdf_type):
         case (None, None):
             return creater_fn(g, sub_uri)

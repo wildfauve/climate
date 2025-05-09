@@ -5,7 +5,7 @@ from clojos_common.util import monad
 from climate import initialiser, model, dataframe, plot, presenter, adapter
 from climate.command import helpers, commanda
 
-@commanda.command(graph_names=['climate_graph'])
+@commanda.command(graph_name='climateGraph')
 def add_temperature(locale: str | model.locale.Locale, minimum, maximum, date=None) -> monad.EitherMonad[Dict]:
     g = helpers.climate_graph()
     result = model.temperature.record(g=g,
@@ -17,7 +17,7 @@ def add_temperature(locale: str | model.locale.Locale, minimum, maximum, date=No
 
 
 
-@commanda.command(graph_names=['climate_graph'])
+@commanda.command(graph_name='climateGraph')
 def temperature_fix() -> monad.EitherMonad[Dict]:
     g = helpers.climate_graph()
     result = model.temperature.fix(g=g)

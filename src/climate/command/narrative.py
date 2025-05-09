@@ -6,7 +6,7 @@ from climate import initialiser, model
 from climate.command import helpers, commanda
 
 
-@commanda.command(graph_names=['climate_graph'])
+@commanda.command(graph_name='climateGraph')
 def add_narrative(locale: model.locale, terms: List[str], date=None) -> monad.EitherMonad[Dict]:
     g = helpers.climate_graph()
     result = model.weather_narrative.record(g=g,
@@ -16,7 +16,7 @@ def add_narrative(locale: model.locale, terms: List[str], date=None) -> monad.Ei
     return result
 
 
-@commanda.command(graph_names=['climate_graph'])
+@commanda.command(graph_name='climateGraph')
 def narrative_fix() -> monad.EitherMonad[Dict]:
     g = helpers.climate_graph()
     result = model.weather_narrative.fix(g=g)

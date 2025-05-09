@@ -1,5 +1,4 @@
 from .triples import (
-    RepoContext,
     drop,
     graph,
     init,

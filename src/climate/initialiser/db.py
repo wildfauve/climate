@@ -1,5 +1,11 @@
+from pathlib import Path
+
 from climate import repo
 
+GRAPHS = {
+    "climateGraph": (Path(__file__).parent.parent.parent.parent / "data" / "db" / "climate-test.ttl", "ttl")
+}
+
+
 def initialise_db():
-    repo.RepoContext().configure()
-    repo.init()
+    return repo.init(GRAPHS)

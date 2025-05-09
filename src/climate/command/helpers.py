@@ -1,10 +1,9 @@
 from typing import List, Tuple
 from climate import repo
 
-def save(graph_names: List = None, val: Tuple = None) -> Tuple:
-    repo.save(graph_names)
-    return val
+def save(graph_name: str) -> Tuple:
+    return repo.save(graph_name)
 
 
 def climate_graph():
-    return repo.graph('climate_graph')
+    return repo.graph('climateGraph')

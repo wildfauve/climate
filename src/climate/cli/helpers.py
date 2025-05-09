@@ -10,7 +10,7 @@ from clojos_common.util import fn
 
 from climate import model, adapter, repo, presenter
 
-console_save_file = Path(__file__).parent.parent.parent / "_temp" / "console.json"
+console_save_file = Path(__file__).parent.parent.parent.parent / "_temp" / "console.json"
 
 
 @dataclass
@@ -51,7 +51,7 @@ def prompt_for_temperature(reading_name):
 
 
 def all_locales_indexed(add_exit=False):
-    all_locales = [(idx, locale.value) for idx, locale in enumerate(model.locale.get_all(repo.graph('climate_graph')))]
+    all_locales = [(idx, locale.value) for idx, locale in enumerate(model.locale.get_all(repo.graph('climateGraph')))]
     if not add_exit:
         return all_locales
     return _add_terminations(all_locales)
