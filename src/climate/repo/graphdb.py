@@ -50,7 +50,7 @@ class G:
 
 @singleton.singleton
 class GraphRepo:
-    def __init__(self, graphs: dict[tuple[Path, str]]):
+    def __init__(self, graphs: dict[str, tuple[Path, str]]):
         self.graphs = [G(name=k, path=path, rdf_form=form, graph=Graph()) for k,(path, form) in graphs.items()]
         self._g = None
 

@@ -10,7 +10,7 @@ def empty_graph():
     return initgraph()
 
 
-def init(graphs: dict[tuple[Path, str]]):
+def init(graphs: dict[str, tuple[Path, str]]):
     graphdb.GraphRepo(graphs=graphs)
 
 

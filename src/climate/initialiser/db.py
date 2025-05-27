@@ -3,7 +3,7 @@ from pathlib import Path
 from climate import repo
 
 GRAPHS = {
-    "climateGraph": (Path(__file__).parent.parent.parent.parent / "data" / "db" / "climate-test.ttl", "ttl")
+    "climateGraph": (Path(__file__).parent.parent.parent.parent / "data" / "db" / "climate.ttl", "ttl")
 }
 
 
