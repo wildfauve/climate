@@ -3,8 +3,8 @@
         "noun": {
             "rain": "dry:m,a,e,n",
             "sky": "sunny:m,a",
-            "temperature": "mild:m,a,e,n",
-            "wind": "gale_force:m,a,e,n"
+            "temperature": "hot:m,a,e,n",
+            "wind": "still:m,a,e,n"
         }
     }
 }

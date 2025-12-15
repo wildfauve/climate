@@ -23,6 +23,7 @@ class RainTerms(Enum):
     DRIZZLE = RAIN + "/Drizzle"
     SHOWERS = RAIN + "/Showers"
     HEAVY = RAIN + "/Heavy"
+    HAIL = RAIN + "/Hail"
 
 
 class WindTerms(Enum):
