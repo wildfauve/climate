@@ -1,9 +1,9 @@
 {
     "narrative": {
         "noun": {
-            "rain": "dry:m,a,e,n",
-            "sky": "sunny:m,a",
-            "temperature": "hot:m,a,e,n",
+            "rain": "dry:m,a;drizzle:e,n",
+            "sky": "cloudy:m,a",
+            "temperature": "mild:m,a,e,n",
             "wind": "still:m,a,e,n"
         }
     }
