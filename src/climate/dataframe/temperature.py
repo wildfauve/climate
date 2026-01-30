@@ -7,8 +7,8 @@ from climate import model, repo
 schema = {'Locale': pl.Utf8,
           'RecordedAt': pl.Datetime(time_zone=model.TZ),
           'RecordedFor': pl.Date,
-          'Min': pl.Decimal,
-          'Max': pl.Decimal}
+          'Min': pl.Decimal(5,1),
+          'Max': pl.Decimal(5,1)}
 
 
 def locale_temperatures(g: repo.GraphRepo):

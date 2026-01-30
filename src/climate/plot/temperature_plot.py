@@ -79,7 +79,7 @@ def _filter_locale_temp_type(df, locale, temp_type):
 
 def _filter_locale(df, locale):
     return (df.filter(pl.col('Locale') == locale)
-            .sort(pl.col('RecordedAt'))
+            .sort(pl.col('RecordedFor'))
             .select(pl.col('Min'), pl.col('Max')))
 
 
