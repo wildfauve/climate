@@ -1,0 +1,42 @@
+[tools]
+uv = "0.11.7"
+
+
+[tasks.lint]
+description = "Checks the app with Ruff"
+usage = '''
+arg "<path>" help="Path to Check"
+arg "<opt>" help="w=Watch" default=""
+'''
+run = '''
+OPT="${usage_opt}"
+if [[ "$OPT" == "w" ]]; then
+  uv run ruff check ${usage_path} -w
+else
+  uv run ruff check ${usage_path}
+fi
+'''
+
+[tasks.lint-fix]
+description = "Ruff Fix"
+run = ["uv run ruff check . --fix"]
+
+
+[tasks.sort-import]
+description = "Sorts imports with Ruff"
+run = [
+  "uv run ruff check --select I --fix .",
+  "ruff check --select RUF022 --fix .",
+
+]
+
+[tasks.fmt-all]
+description = "Fmts all files"
+run = ["uv run ruff format ."]
+
+[tasks.cl]
+description = "Run Climate CLI"
+run = ["uv run climate"]
+
+[settings]
+idiomatic_version_file_enable_tools = []

@@ -1,5 +1,5 @@
 # temp data area
-_temp/
+tmp/
 
 .df-repl-history
 

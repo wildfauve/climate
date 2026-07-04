@@ -1,0 +1,61 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.11",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "26f033f4b20d04c40155146dcb4f513f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "eff7d5dba32b4da32d9a67a519434d3f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='MJUe-0' random-id='9ca22ee3-08ee-ca60-2034-578a7ff57483'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Fydoro Folly&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-03 08:19:57.803394+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-01&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;15.5&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;45.9&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Siroccoscape&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-03 08:19:30.006183+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-01&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;13.4&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;55.7&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Wivenhoe Garden Portico&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-03 08:19:47.398730+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-01&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;16.0&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;24.5&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Fydoro Folly&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-04 11:15:55.380359+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-02&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;14.4&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;45.9&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Siroccoscape&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-04 11:16:05.620817+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-02&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;11.7&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;54.1&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Wivenhoe Garden Portico&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-04 11:16:27.044811+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-02&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;13.1&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;25.2&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Fydoro Folly&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-04 11:15:02.605715+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-03&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;13.1&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;34.9&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Siroccoscape&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-04 11:15:12.175466+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-03&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;9.6&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;44.6&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Wivenhoe Garden Portico&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-04 11:15:22.478512+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-03&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;11.2&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;20.9&#92;&quot;},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Fydoro Folly&#92;&quot;,&#92;&quot;RecordedAt&#92;&quot;:&#92;&quot;2026-01-06 09:54:32.425047+13:00&#92;&quot;,&#92;&quot;RecordedFor&#92;&quot;:&#92;&quot;2026-01-04&#92;&quot;,&#92;&quot;Min&#92;&quot;:&#92;&quot;10.0&#92;&quot;,&#92;&quot;Max&#92;&quot;:&#92;&quot;46.7&#92;&quot;}]&quot;' data-total-rows='543' data-total-columns='5' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Locale&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;RecordedAt&quot;,[&quot;datetime&quot;,&quot;datetime[\u03bcs, Pacific/Auckland]&quot;]],[&quot;RecordedFor&quot;,[&quot;date&quot;,&quot;date&quot;]],[&quot;Min&quot;,[&quot;number&quot;,&quot;decimal[5,1]&quot;]],[&quot;Max&quot;,[&quot;number&quot;,&quot;decimal[5,1]&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "f1ce312b36aba7bc027c6b1951a80a46",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='vblA-0' random-id='770b8545-ba31-7a85-3f17-02af5a1a9872'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Wivenhoe Garden Portico&#92;&quot;,&#92;&quot;len&#92;&quot;:181},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Fydoro Folly&#92;&quot;,&#92;&quot;len&#92;&quot;:181},{&#92;&quot;Locale&#92;&quot;:&#92;&quot;Siroccoscape&#92;&quot;,&#92;&quot;len&#92;&quot;:181}]&quot;' data-total-rows='3' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;Locale&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;len&quot;,[&quot;integer&quot;,&quot;u32&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "9c98f3fbd92fd130dff863ca8812e6a2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='6cd238de-5096-73a6-a932-b2306168c5d0'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[]&quot;' data-total-rows='0' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;RecordedFor&quot;,[&quot;date&quot;,&quot;date&quot;]],[&quot;len&quot;,[&quot;integer&quot;,&quot;u32&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

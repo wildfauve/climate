@@ -12,7 +12,7 @@ from matplotlib.lines import Line2D
 
 markers = Line2D.filled_markers
 
-temp_file_root = Path("_temp")
+temp_file_root = Path("tmp")
 
 TITLE = "Min Max Temperature @ Locale"
 X_TITLE = "Recorded For 24 Hour Period (~0800 Recorded For Day -> ~0800 Day + 1)"
