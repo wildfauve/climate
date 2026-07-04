@@ -2,6 +2,7 @@ import pendulum
 
 from climate import model, rdf
 
+
 def record_date(date: str = None):
     if not date:
         return now_date_in_tz()
@@ -14,8 +15,10 @@ def record_date(date: str = None):
 def now_date_in_tz():
     return now_in_tz().date()
 
+
 def now_in_tz():
     return pendulum.now(tz=model.TZ)
+
 
 def default_day(format_as_date_str: bool = True):
     now = now_in_tz().subtract(days=1)

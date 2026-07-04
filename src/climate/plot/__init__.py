@@ -1,3 +1,1 @@
-from .temperature_plot import (
-    locale_temperatures
-)
+from .temperature_plot import locale_temperatures

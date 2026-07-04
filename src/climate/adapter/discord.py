@@ -1,5 +1,6 @@
-from discord_webhook import DiscordWebhook, DiscordEmbed
 from pathlib import Path
+
+from discord_webhook import DiscordEmbed, DiscordWebhook
 
 from climate.util import env
 
@@ -10,7 +11,13 @@ def send_basic_text(message_text):
     pass
 
 
-def send_attachment(msg_title: str, description: str, file_path: Path, file_name: str, as_attachment: bool = False):
+def send_attachment(
+    msg_title: str,
+    description: str,
+    file_path: Path,
+    file_name: str,
+    as_attachment: bool = False,
+):
     hook = DiscordWebhook(url=_channel_url())
     with open(file_path, "rb") as f:
         hook.add_file(file=f.read(), filename=file_name)
@@ -21,7 +28,7 @@ def send_attachment(msg_title: str, description: str, file_path: Path, file_name
 
 
 def _as_attachment(hook, msg_title: str, description: str, file_name: str):
-    embed = DiscordEmbed(title=msg_title, description=description, color='03b2f8')
+    embed = DiscordEmbed(title=msg_title, description=description, color="03b2f8")
     embed.set_thumbnail(url=f"attachment://{file_name}")
 
     hook.add_embed(embed)

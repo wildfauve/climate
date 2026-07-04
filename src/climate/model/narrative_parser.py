@@ -1,9 +1,9 @@
-from typing import List, Union, Tuple, Optional, Generic, TypeVar
 import re
 from dataclasses import dataclass
 from enum import Enum
+from typing import Generic, List, Optional, Tuple, TypeVar, Union
 
-from clojos_common.util import monad, fn
+from clojos_common.util import fn, monad
 
 from climate import rdf
 
@@ -111,8 +111,12 @@ def parse(component: str) -> monad.Either[NarrativeStatement, str]:
         return monad.Left(f"Adjectives dont parse for {component}")
     if not all([t for adj in adjs for t in adj.temporal_statements]):
         return monad.Left(f"Adjectives dont parse for {component}")
-    return monad.Right(NarrativeStatement(noun=noun,
-                                          temporal_adjectives=_temporal_adjectives(minified_component, adj_type)))
+    return monad.Right(
+        NarrativeStatement(
+            noun=noun,
+            temporal_adjectives=_temporal_adjectives(minified_component, adj_type),
+        )
+    )
 
 
 def _remove_fill(component: str) -> str:
@@ -134,8 +138,9 @@ def _temporal_adjectives(component: str, adj_type: Union[RainTerms]):
     all_adjs, *_ = search.groups()
     return [_individual_adjective(group, adj_type) for group in all_adjs.split(";")]
 
+
 def _individual_adjective(group: str, adj_type) -> TemporalAdjectiveCollection | None:
-# def _individual_adjective(group: str, adj_type) -> Optional[TemporalAdjectiveCollection]:
+    # def _individual_adjective(group: str, adj_type) -> Optional[TemporalAdjectiveCollection]:
     if group.count(":") != 1:
         return None
     adj_name, temporality = group.split(":")
@@ -144,7 +149,11 @@ def _individual_adjective(group: str, adj_type) -> TemporalAdjectiveCollection |
         return None
     return TemporalAdjectiveCollection(
         adjective=_term_or_none(adj_name.upper(), adj_type),
-        temporal_statements=[_term_or_none(term.upper(), TemporalTerm, TemporalShortCuts) for term in temporality.split(",")])
+        temporal_statements=[
+            _term_or_none(term.upper(), TemporalTerm, TemporalShortCuts)
+            for term in temporality.split(",")
+        ],
+    )
 
 
 def _term_or_none(term, term_type: Enum, short_cuts: Optional[Enum] = None):

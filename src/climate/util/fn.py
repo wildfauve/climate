@@ -1,11 +1,11 @@
 import re
 from collections.abc import Iterable
-from functools import reduce, partial
+from functools import partial, reduce
 from operator import iconcat
-from typing import Tuple, List, Any
+from typing import Any, List, Tuple
 
 from returns.curry import curry
-from returns.maybe import Nothing, Some, Maybe
+from returns.maybe import Maybe, Nothing, Some
 from returns.pipeline import flow
 
 """
@@ -27,8 +27,10 @@ def deep_get(data: dict, path: list[str], default: Any = None) -> Any:
     if not isinstance(path, Iterable):
         return None
     fst, rst = first(path), rest(path)
-    if fst not in data: return default
-    if (fst in data) and len(rst) == 0: return data[fst]
+    if fst not in data:
+        return default
+    if (fst in data) and len(rst) == 0:
+        return data[fst]
     return deep_get(data[fst], rst, default)
 
 
@@ -84,7 +86,7 @@ def find_by_predicate(predicate_fn: callable, iterable: list):
 
 
 def type_predicate(type):
-    return lambda x: x['_type'] == type
+    return lambda x: x["_type"] == type
 
 
 def partial_filter(fn: callable, iterable: list):
@@ -156,7 +158,7 @@ def at_index[T](idx: int, xs: Iterable[T]) -> T:
 
     >>> at_1 = at_index(1)
     >>> at_1([1,2,3,4])
-    
+
     :param idx:
     :param xs:
     :return:

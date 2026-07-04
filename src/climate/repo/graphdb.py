@@ -3,10 +3,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from rdflib import Graph, URIRef, Namespace
+from rdflib import Graph, Namespace, URIRef
 from returns.maybe import Maybe
 
 from climate.util import fn, singleton
+
 
 @dataclass
 class Prefix:
@@ -43,15 +44,17 @@ class G:
         return self.graph.serialize(format=format, indent=indent)
 
     def write(self, serialised_graph):
-        with open(self.path, 'w') as f:
+        with open(self.path, "w") as f:
             f.write(serialised_graph)
-
 
 
 @singleton.singleton
 class GraphRepo:
     def __init__(self, graphs: dict[str, tuple[Path, str]]):
-        self.graphs = [G(name=k, path=path, rdf_form=form, graph=Graph()) for k,(path, form) in graphs.items()]
+        self.graphs = [
+            G(name=k, path=path, rdf_form=form, graph=Graph())
+            for k, (path, form) in graphs.items()
+        ]
         self._g = None
 
     # def __init__(self, graph: Graph, name: str, context: dict = None):
@@ -68,10 +71,10 @@ class GraphRepo:
         g = G.find_by_name(name, self.graphs).load()
         self._g = g
         return self
-    
+
     def save(self, graph_name: str = None):
         self._write_to_ttl(self._g)
-        
+
     def _write_to_ttl(self, g: G):
         if g.rdf_form == "ttl":
             g.serialize_and_write(format=g.rdf_form)
@@ -86,8 +89,9 @@ class GraphRepo:
         return fn.maybe_find(lambda p: p[0] == prefix, self.namespaces)
 
     def namespace_for_prefix(self, prefix: str) -> Maybe[tuple[str, Namespace]]:
-        return (fn.maybe_find(lambda p: p[0] == prefix, self.namespaces)
-                .bind_optional(lambda prefix_tuple: (prefix_tuple[0], Namespace(prefix_tuple[1]))))
+        return fn.maybe_find(lambda p: p[0] == prefix, self.namespaces).bind_optional(
+            lambda prefix_tuple: (prefix_tuple[0], Namespace(prefix_tuple[1]))
+        )
 
     @property
     def namespaces(self):
@@ -136,11 +140,11 @@ class GraphRepo:
     def serialise(self, fmt: str = "ttl", with_context: bool = False, **kwargs):
         additional_args = {}
         if with_context:
-            additional_args['context'] = self.context_obj
+            additional_args["context"] = self.context_obj
         return self._g.graph.serialize(format=fmt, **{**kwargs, **additional_args})
 
     def write(self, file, fmt="ttl"):
-        with open(file, 'w') as f:
+        with open(file, "w") as f:
             f.write(self.serialise(fmt=fmt))
 
 

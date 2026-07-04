@@ -1,18 +1,16 @@
-import click
 from decimal import Decimal
 
-from climate.initialiser import environment, db
+import click
 
 from climate import command
+from climate.initialiser import db, environment
 
 # from . import helpers
-
 
 
 @click.group()
 def cli():
     pass
-
 
 
 @click.command()

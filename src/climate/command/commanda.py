@@ -1,7 +1,8 @@
 from typing import List
-from . import helpers
 
 from clojos_common.util import logger
+
+from . import helpers
 
 
 class CommandRunner:
@@ -14,12 +15,15 @@ class CommandRunner:
         return self
 
     def run(self):
-        self.results = [fn(*args, **{**kwargs, **self.opts()}) for fn, args, kwargs in self.commands]
+        self.results = [
+            fn(*args, **{**kwargs, **self.opts()}) for fn, args, kwargs in self.commands
+        ]
         helpers.save()
         return self
 
     def opts(self):
         return {"opts": {"in_runner": True}}
+
 
 def runner():
     return CommandRunner()
@@ -29,8 +33,8 @@ def command(graph_name: str):
     def inner(fn):
         def try_it(*args, **kwargs):
             result = fn(*args, **kwargs)
-            opts = kwargs.get('opts', dict())
-            if result and result.is_right() and not opts.get('in_runner', None):
+            opts = kwargs.get("opts", dict())
+            if result and result.is_right() and not opts.get("in_runner", None):
                 logger.info(f"Saving: {graph_name}")
                 helpers.save(graph_name=graph_name)
             return result

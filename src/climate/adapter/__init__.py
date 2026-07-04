@@ -1,5 +1,2 @@
 from .channel import Channel
-
-from .discord import (
-    send_attachment
-)
+from .discord import send_attachment

@@ -1,16 +1,18 @@
-from typing import List
-from functools import reduce, partial
-from pathlib import Path
+import json
 from dataclasses import dataclass
 from decimal import Decimal
-import json
+from functools import partial, reduce
+from pathlib import Path
+from typing import List
 
 import click
 from clojos_common.util import fn
 
-from climate import model, adapter, repo, presenter
+from climate import adapter, model, presenter, repo
 
-console_save_file = Path(__file__).parent.parent.parent.parent / "_temp" / "console.json"
+console_save_file = (
+    Path(__file__).parent.parent.parent.parent / "_temp" / "console.json"
+)
 
 
 @dataclass
@@ -18,10 +20,10 @@ class ExitTerminator:
     name: str
 
     def is_exit(self):
-        return self.name == 'exit'
+        return self.name == "exit"
 
     def is_finish(self):
-        return self.name == 'finish'
+        return self.name == "finish"
 
 
 def show_menu_and_prompt(menu):
@@ -31,8 +33,10 @@ def show_menu_and_prompt(menu):
     _, menu_item = menu[_prompt_for_main_menu_idx(menu)]
     return menu_item
 
+
 def get_channel_from_input():
-    return click.prompt("Select A Channel", 'terminal', type=click.Choice(channels()))
+    return click.prompt("Select A Channel", "terminal", type=click.Choice(channels()))
+
 
 def channels():
     return [c.name.lower() for c in adapter.Channel]
@@ -51,7 +55,10 @@ def prompt_for_temperature(reading_name):
 
 
 def all_locales_indexed(add_exit=False):
-    all_locales = [(idx, locale.value) for idx, locale in enumerate(model.locale.get_all(repo.graph('climateGraph')))]
+    all_locales = [
+        (idx, locale.value)
+        for idx, locale in enumerate(model.locale.get_all(repo.graph("climateGraph")))
+    ]
     if not add_exit:
         return all_locales
     return _add_terminations(all_locales)
@@ -59,8 +66,8 @@ def all_locales_indexed(add_exit=False):
 
 def _add_terminations(xs: List):
     return xs + [
-        (len(xs), ExitTerminator(name='finish')),
-        (len(xs) + 1, ExitTerminator(name='exit'))
+        (len(xs), ExitTerminator(name="finish")),
+        (len(xs) + 1, ExitTerminator(name="exit")),
     ]
 
 
@@ -74,23 +81,38 @@ def get_locale_from_input():
 
 
 def _prompt_for_locale_idx(all_locales):
-    return int(click.prompt("Select Locale", type=click.Choice([str(idx) for idx, _ in all_locales])))
+    return int(
+        click.prompt(
+            "Select Locale", type=click.Choice([str(idx) for idx, _ in all_locales])
+        )
+    )
 
 
 def _prompt_for_main_menu_idx(menu):
-    return int(click.prompt("Select Menu Item", type=click.Choice([str(idx) for idx, _ in menu.items()])))
+    return int(
+        click.prompt(
+            "Select Menu Item", type=click.Choice([str(idx) for idx, _ in menu.items()])
+        )
+    )
 
 
 def get_narrative_terms_from_import():
-    console_log, terms = reduce(_term_for_noun, model.narrative_parser.narrative_nouns(), (_console_input_file(), []))
+    console_log, terms = reduce(
+        _term_for_noun,
+        model.narrative_parser.narrative_nouns(),
+        (_console_input_file(), []),
+    )
     _write_dict(console_save_file, console_log)
     return terms
 
 
 def _term_for_noun(acc: List, noun):
     console_log, terms = acc
-    term = click.prompt(f"Narrative for {noun}", type=str,
-                        default=_last_input(console_log, ['narrative', 'noun', noun.lower()]))
+    term = click.prompt(
+        f"Narrative for {noun}",
+        type=str,
+        default=_last_input(console_log, ["narrative", "noun", noun.lower()]),
+    )
 
     full_term = _noun_wrap(noun, term)
     result = model.narrative_parser.parse(full_term)
@@ -102,11 +124,11 @@ def _term_for_noun(acc: List, noun):
 
 
 def _add_noun_to_log(console_log, noun, term):
-    current_logged_nouns = fn.deep_get(console_log, ['narrative', 'noun'])
+    current_logged_nouns = fn.deep_get(console_log, ["narrative", "noun"])
     if not current_logged_nouns:
-        console_log.update({'narrative': {'noun': {noun.lower(): term}}})
+        console_log.update({"narrative": {"noun": {noun.lower(): term}}})
     else:
-        console_log['narrative']['noun'].update({noun.lower(): term})
+        console_log["narrative"]["noun"].update({noun.lower(): term})
     pass
 
 

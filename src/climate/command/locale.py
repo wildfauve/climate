@@ -3,13 +3,14 @@ from typing import Dict
 from clojos_common.util import monad
 
 from climate import initialiser, model
-from climate.command import helpers, commanda
+from climate.command import commanda, helpers
 
 
-@commanda.command(graph_name='climateGraph')
+@commanda.command(graph_name="climateGraph")
 def add_locale(name) -> monad.EitherMonad[Dict]:
     g = helpers.climate_graph()
-    result = model.locale.create(g=g,
-                                 name=name,
-)
+    result = model.locale.create(
+        g=g,
+        name=name,
+    )
     return result

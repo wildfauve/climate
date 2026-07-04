@@ -10,8 +10,7 @@ def plot_to_channel(file: str, channel: adapter.Channel, title: str, description
 
 
 def _send_to_discord(file, title, description):
-    adapter.send_attachment(msg_title=title,
-                            file_path=file,
-                            description=description,
-                            file_name=file.name)
+    adapter.send_attachment(
+        msg_title=title, file_path=file, description=description, file_name=file.name
+    )
     pass

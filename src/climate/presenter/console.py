@@ -1,7 +1,7 @@
 import io
 
-from rich.console import Console
 from rich import print
+from rich.console import Console
 from rich.panel import Panel
 
 

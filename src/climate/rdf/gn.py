@@ -1,14 +1,16 @@
 from __future__ import annotations
-from typing import Tuple, List, Optional, Callable, Set, Union
+
 from functools import partial
-from rdflib import Literal, URIRef, Graph, RDF
-from rdflib.query import ResultRow
-from rdflib.plugins.sparql.processor import SPARQLResult
+from typing import Callable, List, Optional, Set, Tuple, Union
 
 import pendulum
-
-from climate import repo, model
 from clojos_common.util import fn, monad
+from rdflib import RDF, Graph, Literal, URIRef
+from rdflib.plugins.sparql.processor import SPARQLResult
+from rdflib.query import ResultRow
+
+from climate import model, repo
+
 from . import sparql
 
 
@@ -23,11 +25,13 @@ def many(result: SPARQLResult) -> List[ResultRow]:
     return list(result)
 
 
-def subject_finder_creator(g: repo.GraphRepo,
-                           sub_uri: URIRef,
-                           type_of: URIRef,
-                           creater_fn: Callable,
-                           update_fn: Callable):
+def subject_finder_creator(
+    g: repo.GraphRepo,
+    sub_uri: URIRef,
+    type_of: URIRef,
+    creater_fn: Callable,
+    update_fn: Callable,
+):
     s, _, rdf_type = first_match(g, (sub_uri, RDF.type, type_of))
     match (s, rdf_type):
         case (None, None):
@@ -52,7 +56,9 @@ def subject(triple):
     return triple[0]
 
 
-def triple_finder(term, t_map: List[Tuple], filter_fn=fn.find, cond=_predicate_eq, builder=obj):
+def triple_finder(
+    term, t_map: List[Tuple], filter_fn=fn.find, cond=_predicate_eq, builder=obj
+):
     """
     Takes a triples map and applies a filter fn and a condition to return either
     a List[(s,p,o)] if builder=object_collection
@@ -73,7 +79,10 @@ def subjects(g: Graph) -> Set[URIRef]:
     return set(g.subjects())
 
 
-def object_for_property(g: Graph, predicate: URIRef, ) -> Union[URIRef, Literal]:
+def object_for_property(
+    g: Graph,
+    predicate: URIRef,
+) -> Union[URIRef, Literal]:
     """
     Extracts the object for a property
     """
@@ -105,7 +114,9 @@ def safe_datetime_to_pendulum(time_literal: Literal):
     return pendulum.instance(time_literal.value)
 
 
-def literal_time(time_literal: Literal, converter: Callable = safe_time_convert) -> Optional[str]:
+def literal_time(
+    time_literal: Literal, converter: Callable = safe_time_convert
+) -> Optional[str]:
     if not time_literal:
         return None
     iso_time = converter(time_literal)
@@ -125,19 +136,20 @@ def safe_time_parser(time_str: str) -> monad.EitherMonad[pendulum.DateTime]:
 def literal_time_triple_parser(triple: Tuple):
     return literal_time(obj(triple), converter=safe_datetime_to_pendulum)
 
+
 def price_label(amt: URIRef, ccy: URIRef) -> str:
     # TODO: Add the rdf-cty-ccy lib
     return "{c}{a}".format(c=ccy.split("/")[-1], a=str(amt.value))
 
 
 def coerce_literal_value(literal: Literal) -> Optional:
-    if not hasattr(literal, 'value'):
+    if not hasattr(literal, "value"):
         return None
     return literal.value
 
 
 def coerce_uri(uri: URIRef) -> Optional[str]:
-    if not hasattr(uri, 'toPython'):
+    if not hasattr(uri, "toPython"):
         return uri if isinstance(uri, str) else None
     return uri.toPython()
 
@@ -156,7 +168,6 @@ def gr(g: Graph):
 
 
 class Grapher:
-
     def __init__(self, name: str = None, init_g: Callable = None):
         self.source_g, self.query_g = None, None
         self.name = name if name else self.__class__.__name__
@@ -167,7 +178,11 @@ class Grapher:
         return self
 
     def sub_grapher(self, name: str = None):
-        return self.__class__(name).g(self.query_g) if self.query_g else self.__class__(name).g(self.source_g)
+        return (
+            self.__class__(name).g(self.query_g)
+            if self.query_g
+            else self.__class__(name).g(self.source_g)
+        )
 
     def c(self, cq, **kwargs):
         """

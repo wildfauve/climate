@@ -1,11 +1,11 @@
 from __future__ import annotations
-from typing import List, Tuple
-from functools import partial
-from dataclasses import dataclass
 
-from rdflib import Graph, URIRef, Literal, RDF, BNode
+from dataclasses import dataclass
+from functools import partial
+from typing import List, Tuple
 
 from clojos_common.util import fn, monad
+from rdflib import RDF, BNode, Graph, Literal, URIRef
 
 from climate import rdf, repo
 
@@ -17,11 +17,13 @@ class LocaleDTO:
 
 
 def upsert(g: repo.GraphRepo, locale) -> monad.EitherMonad:
-    return rdf.subject_finder_creator(g,
-                                      locale.subject,
-                                      rdf.Locale,
-                                      creater_fn=partial(_creator, locale),
-                                      update_fn=partial(_updater, locale))
+    return rdf.subject_finder_creator(
+        g,
+        locale.subject,
+        rdf.Locale,
+        creater_fn=partial(_creator, locale),
+        update_fn=partial(_updater, locale),
+    )
 
 
 def find_by_name(g: repo.GraphRepo, name):
@@ -33,7 +35,10 @@ def find_by_sub(g: repo.GraphRepo, sub):
 
 
 def get_all(g: repo.GraphRepo):
-    return [find_by_sub(g, sub) for sub in rdf.all_matching(g, (None, RDF.type, rdf.Locale), form=rdf.subject)]
+    return [
+        find_by_sub(g, sub)
+        for sub in rdf.all_matching(g, (None, RDF.type, rdf.Locale), form=rdf.subject)
+    ]
 
 
 def _creator(locale, g: repo.GraphRepo, sub) -> monad.EitherMonad:
@@ -44,6 +49,7 @@ def _creator(locale, g: repo.GraphRepo, sub) -> monad.EitherMonad:
 
 def _updater(temp_record, g: repo.GraphRepo, sub):
     breakpoint()
+
 
 def _to_locale(locale: Tuple):
     sub, _, name = locale

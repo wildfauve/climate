@@ -1,10 +1,9 @@
-from typing import Callable
 from textwrap import dedent
-from rdflib import Literal
-from rdflib.plugins.sparql.processor import SPARQLResult
+from typing import Callable
 
 from clojos_common.util import logger
-
+from rdflib import Literal
+from rdflib.plugins.sparql.processor import SPARQLResult
 
 
 def sparql_prefixes():
@@ -16,8 +15,7 @@ def sparql_prefixes():
     prefix foaf: <http://xmlns.com/foaf/0.1/>
     """)
 
+
 def query(g, query_exp: str, prefixes_fn: Callable = sparql_prefixes) -> SPARQLResult:
     logger.info(f"{prefixes_fn()}\n{query_exp}")
     return g.query(f"{prefixes_fn()}\n{query_exp}")
-
-

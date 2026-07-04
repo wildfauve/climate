@@ -1,6 +1,5 @@
-from climate.initialiser import environment, db
-
 from climate import command, presenter
+from climate.initialiser import db, environment
 
 from . import helpers
 
@@ -23,8 +22,8 @@ def _temperatures(record_date):
         if isinstance(locale, helpers.ExitTerminator):
             flow = locale
             break
-        minimum = helpers.prompt_for_temperature(f'{locale.name.toPython()}: Minimum')
-        maximum = helpers.prompt_for_temperature(f'{locale.name.toPython()}: Maximum')
+        minimum = helpers.prompt_for_temperature(f"{locale.name.toPython()}: Minimum")
+        maximum = helpers.prompt_for_temperature(f"{locale.name.toPython()}: Maximum")
         command.add_temperature(locale, minimum, maximum, record_date)
     return flow
 
@@ -36,9 +35,11 @@ def _narrative(record_date):
         if isinstance(locale_or_terminator, helpers.ExitTerminator):
             flow = locale_or_terminator
             break
-        command.add_narrative(locale=locale_or_terminator,
-                              terms=helpers.get_narrative_terms_from_import(),
-                              date=record_date)
+        command.add_narrative(
+            locale=locale_or_terminator,
+            terms=helpers.get_narrative_terms_from_import(),
+            date=record_date,
+        )
     return flow
 
 
@@ -47,10 +48,11 @@ def _plot(_record_date):
     command.plot_temperatures(channel=channel)
     return None
 
+
 def _main_menu():
     return {
-        1: ('Add Temperatures', _temperatures),
-        2: ('Add Narrative', _narrative),
-        4: ('Plot', _plot),
-        3: ('Exit', None)
+        1: ("Add Temperatures", _temperatures),
+        2: ("Add Narrative", _narrative),
+        4: ("Plot", _plot),
+        3: ("Exit", None),
     }

@@ -1,21 +1,23 @@
 from __future__ import annotations
-from typing import List
-from functools import partial
-from dataclasses import dataclass
 
-from rdflib import Graph, URIRef, Literal, RDF, BNode
+from dataclasses import dataclass
+from functools import partial
+from typing import List
 
 from clojos_common.util import fn, monad
+from rdflib import RDF, BNode, Graph, Literal, URIRef
 
 from climate import rdf, repo
 
 
 def upsert(g: repo.GraphRepo, narrative_record) -> monad.EitherMonad:
-    return rdf.subject_finder_creator(g,
-                                      narrative_record.subject,
-                                      rdf.MinMaxTemperatureRecord,
-                                      creater_fn=partial(_creator, narrative_record),
-                                      update_fn=partial(_updater, narrative_record))
+    return rdf.subject_finder_creator(
+        g,
+        narrative_record.subject,
+        rdf.MinMaxTemperatureRecord,
+        creater_fn=partial(_creator, narrative_record),
+        update_fn=partial(_updater, narrative_record),
+    )
 
 
 def get_all_narratives(g: repo.GraphRepo):
@@ -49,6 +51,7 @@ def _add_temporal_adjective(g, bn, temp_adj):
         if not temporal_statement:
             breakpoint()
         g.add((temp_adj_bn, rdf.hasTemporalExpression, temporal_statement.value))
+
 
 def _updater(temp_record, g: repo.GraphRepo, sub):
     breakpoint()

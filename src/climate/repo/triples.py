@@ -2,9 +2,10 @@ from pathlib import Path
 
 from rdflib import Graph
 
+from climate import rdf
+
 from . import graphdb
 
-from climate import rdf
 
 def empty_graph():
     return initgraph()
@@ -12,7 +13,6 @@ def empty_graph():
 
 def init(graphs: dict[str, tuple[Path, str]]):
     graphdb.GraphRepo(graphs=graphs)
-
 
 
 def graph(graph_name):

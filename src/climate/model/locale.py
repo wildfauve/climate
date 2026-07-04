@@ -1,12 +1,13 @@
 from __future__ import annotations
-from typing import List, Union
+
 from dataclasses import dataclass
+from typing import List, Union
 
 import pendulum
-from rdflib import URIRef, Graph
 from clojos_common.util import monad, tokeniser
+from rdflib import Graph, URIRef
 
-from climate import model, repo, rdf
+from climate import model, rdf, repo
 
 
 @dataclass
@@ -24,15 +25,21 @@ def create(g: repo.GraphRepo, name):
         return monad.Right(locale)
     breakpoint()
 
+
 def get_all(g: repo.GraphRepo):
-    return [_to_locale_result(name=dto.name, subject=dto.subject) for dto in repo.locale.get_all(g)]
+    return [
+        _to_locale_result(name=dto.name, subject=dto.subject)
+        for dto in repo.locale.get_all(g)
+    ]
+
 
 def _to_locale(name):
-    return Locale(name=name,
-                  subject=_to_subject(name))
+    return Locale(name=name, subject=_to_subject(name))
 
 
-def locale_from_name(g: repo.GraphRepo, name: Union[str, model.locale.Locale]) -> monad.EitherMonad:
+def locale_from_name(
+    g: repo.GraphRepo, name: Union[str, model.locale.Locale]
+) -> monad.EitherMonad:
     if isinstance(name, Locale):
         return monad.Right(name)
     result_dto = repo.locale.find_by_name(g, name)
@@ -49,6 +56,7 @@ def _to_locale_result(name, subject):
 
 
 def _to_subject(name) -> URIRef:
-    token_name = tokeniser.titleiser_tokeniser(name, tokeniser.sp_splitter,
-                                               tokeniser.special_char_set)
+    token_name = tokeniser.titleiser_tokeniser(
+        name, tokeniser.sp_splitter, tokeniser.special_char_set
+    )
     return rdf.plz_cl_ind_loc[token_name]

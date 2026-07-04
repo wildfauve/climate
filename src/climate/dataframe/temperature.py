@@ -1,14 +1,16 @@
-from functools import reduce, partial
+from functools import partial, reduce
 
 import polars as pl
 
 from climate import model, repo
 
-schema = {'Locale': pl.Utf8,
-          'RecordedAt': pl.Datetime(time_zone=model.TZ),
-          'RecordedFor': pl.Date,
-          'Min': pl.Decimal(5,1),
-          'Max': pl.Decimal(5,1)}
+schema = {
+    "Locale": pl.Utf8,
+    "RecordedAt": pl.Datetime(time_zone=model.TZ),
+    "RecordedFor": pl.Date,
+    "Min": pl.Decimal(5, 1),
+    "Max": pl.Decimal(5, 1),
+}
 
 
 def locale_temperatures(g: repo.GraphRepo):
@@ -21,21 +23,30 @@ def _build_series_2(all_records):
 
 
 def _build_rec(record):
-    return [record.locale.name,
-            record.recorded_at,
-            record.recorded_for,
-            float(record.minimum) if record.minimum else None,
-            float(record.maximum) if record.maximum else None]
+    return [
+        record.locale.name,
+        record.recorded_at,
+        record.recorded_for,
+        float(record.minimum) if record.minimum else None,
+        float(record.maximum) if record.maximum else None,
+    ]
 
 
 def _build_series(records):
     date_series = sorted({rec.recorded_at.to_date_string() for rec in records})
-    series = reduce(_max_min_series, sorted(records, key=lambda rec: rec.recorded_at), {})
-    return {**{"Locale": [loc for loc in series.keys()]}, **_generate_temp_series(series, date_series)}
+    series = reduce(
+        _max_min_series, sorted(records, key=lambda rec: rec.recorded_at), {}
+    )
+    return {
+        **{"Locale": [loc for loc in series.keys()]},
+        **_generate_temp_series(series, date_series),
+    }
 
 
 def _generate_temp_series(temp_series, date_series):
-    return reduce(partial(_temps_dict, date_series), _transpose_temps_to_series(temp_series), {})
+    return reduce(
+        partial(_temps_dict, date_series), _transpose_temps_to_series(temp_series), {}
+    )
 
 
 def _transpose_temps_to_series(recordings):

@@ -4,7 +4,7 @@ __plz_cl_ns = "https://palazzo.io/ontology/Climate/"
 __plz_cl_ind_ns = "https://palazzo.io/ontology/Climate/Ind/"
 
 owl = Namespace("http://www.w3.org/2002/07/owl#")
-skos = Namespace('http://www.w3.org/2004/02/skos/core#')
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
 
 plz_cl = Namespace(__plz_cl_ns)
 
