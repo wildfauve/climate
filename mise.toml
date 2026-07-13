@@ -38,5 +38,10 @@ run = ["uv run ruff format ."]
 description = "Run Climate CLI"
 run = ["uv run climate"]
 
+[tasks.pl]
+description = "Run Temp Plot"
+run = ["uv run temperature plot"]
+
+
 [settings]
 idiomatic_version_file_enable_tools = []

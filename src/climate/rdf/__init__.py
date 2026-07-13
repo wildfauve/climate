@@ -1,5 +1,5 @@
+from .rdf_prefix import *
 from . import rdf_prefix as P
-from .binding import bind
 from .gn import (
     Grapher,
     all_matching,
@@ -23,6 +23,5 @@ from .gn import (
     triple_finder,
 )
 from .predicates import *
-from .rdf_prefix import *
 from .sparql import query, sparql_prefixes
 from .types_of import *
