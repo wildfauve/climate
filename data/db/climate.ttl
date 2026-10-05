@@ -1742,6 +1742,111 @@ plz-cl-ind-loc:PalazzoBronzino a plz-cl:Locale ;
     plz-cl:isRecordedForDate "2026-09-20"^^xsd:date ;
     plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
 
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-21> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 40.7 ;
+    plz-cl:hasDailyMinimum 5.5 ;
+    plz-cl:isRecordedAtDateTime "2026-09-28T08:06:42.728405+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-21"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-22> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 28.6 ;
+    plz-cl:hasDailyMinimum 4.3 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:32:31.888996+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-22"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-23> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 28.2 ;
+    plz-cl:hasDailyMinimum 1.3 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:31:47.661403+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-23"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-24> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 38.3 ;
+    plz-cl:hasDailyMinimum 3.1 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:30:57.691035+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-24"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-25> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 34.5 ;
+    plz-cl:hasDailyMinimum 6.5 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:30:15.617468+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-25"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-26> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 42.5 ;
+    plz-cl:hasDailyMinimum 15.0 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:29:22.633166+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-26"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-27> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 19.8 ;
+    plz-cl:hasDailyMinimum 2.2 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:27:56.760581+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-27"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-28> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 39.2 ;
+    plz-cl:hasDailyMinimum 2.2 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:26:57.643944+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-28"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-29> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 42.1 ;
+    plz-cl:hasDailyMinimum 4.9 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:26:07.096634+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-29"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-09-30> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 28.3 ;
+    plz-cl:hasDailyMinimum 8.0 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:25:06.868058+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-30"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-10-01> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 40.7 ;
+    plz-cl:hasDailyMinimum 6.7 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:24:09.818082+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-01"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-10-02> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 16.1 ;
+    plz-cl:hasDailyMinimum 8.0 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:23:11.914482+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-02"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-10-03> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 42.5 ;
+    plz-cl:hasDailyMinimum 9.0 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:22:05.356627+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-03"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-10-04> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 38.2 ;
+    plz-cl:hasDailyMinimum 2.7 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:21:20.927396+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-04"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/FydoroFolly/2026-10-05> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 40.3 ;
+    plz-cl:hasDailyMinimum 4.9 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:20:17.683834+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-05"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:FydoroFolly .
+
 <https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-01-01> a plz-cl:MinMaxTemperatureRecord ;
     plz-cl:hasDailyMaximum 55.7 ;
     plz-cl:hasDailyMinimum 13.4 ;
@@ -3462,6 +3567,111 @@ plz-cl-ind-loc:PalazzoBronzino a plz-cl:Locale ;
     plz-cl:hasDailyMinimum 1.3 ;
     plz-cl:isRecordedAtDateTime "2026-09-22T07:56:31.100582+12:00"^^xsd:dateTime ;
     plz-cl:isRecordedForDate "2026-09-20"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-21> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 31.7 ;
+    plz-cl:hasDailyMinimum 3.4 ;
+    plz-cl:isRecordedAtDateTime "2026-09-28T08:06:33.638424+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-21"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-22> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 20.9 ;
+    plz-cl:hasDailyMinimum 0.6 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:32:23.163088+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-22"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-23> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 31.2 ;
+    plz-cl:hasDailyMinimum -2.2 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:31:39.187352+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-23"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-24> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 31.1 ;
+    plz-cl:hasDailyMinimum -0.8 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:30:49.318008+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-24"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-25> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 37.1 ;
+    plz-cl:hasDailyMinimum 3.4 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:30:00.883569+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-25"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-26> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 37.1 ;
+    plz-cl:hasDailyMinimum 13.8 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:29:14.261473+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-26"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-27> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 22.5 ;
+    plz-cl:hasDailyMinimum -1.4 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:27:49.436847+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-27"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-28> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 31.3 ;
+    plz-cl:hasDailyMinimum 1.1 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:26:45.806980+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-28"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-29> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 34.6 ;
+    plz-cl:hasDailyMinimum 2.4 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:25:58.158681+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-29"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-09-30> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 31.4 ;
+    plz-cl:hasDailyMinimum 4.8 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:24:51.357778+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-30"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-10-01> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 39.6 ;
+    plz-cl:hasDailyMinimum 3.3 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:24:01.278903+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-01"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-10-02> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 37.4 ;
+    plz-cl:hasDailyMinimum 4.9 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:23:04.549176+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-02"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-10-03> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 24.4 ;
+    plz-cl:hasDailyMinimum 5.7 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:21:57.572659+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-03"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-10-04> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 32.9 ;
+    plz-cl:hasDailyMinimum -1.9 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:20:57.500915+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-04"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/SiroccoScape/2026-10-05> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 33.3 ;
+    plz-cl:hasDailyMinimum 0.6 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:20:09.902315+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-05"^^xsd:date ;
     plz-cl:recordedAtLocale plz-cl-ind-loc:SiroccoScape .
 
 <https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-01-01> a plz-cl:MinMaxTemperatureRecord ;
@@ -5198,6 +5408,111 @@ plz-cl-ind-loc:PalazzoBronzino a plz-cl:Locale ;
     plz-cl:hasDailyMinimum 3.3 ;
     plz-cl:isRecordedAtDateTime "2026-09-22T07:57:48.982195+12:00"^^xsd:dateTime ;
     plz-cl:isRecordedForDate "2026-09-20"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-21> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 18.9 ;
+    plz-cl:hasDailyMinimum 5.5 ;
+    plz-cl:isRecordedAtDateTime "2026-09-28T08:06:53.263001+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-21"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-22> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 11.5 ;
+    plz-cl:hasDailyMinimum 2.8 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:32:39.198260+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-22"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-23> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 12.8 ;
+    plz-cl:hasDailyMinimum 0.3 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:31:54.704895+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-23"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-24> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 15.3 ;
+    plz-cl:hasDailyMinimum 1.3 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:31:03.937659+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-24"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-25> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 18.1 ;
+    plz-cl:hasDailyMinimum 4.9 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:30:22.091805+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-25"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-26> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 19.1 ;
+    plz-cl:hasDailyMinimum 13.4 ;
+    plz-cl:isRecordedAtDateTime "2026-09-27T09:29:30.260897+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-26"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-27> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 17.6 ;
+    plz-cl:hasDailyMinimum 1.2 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:28:03.065569+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-27"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-28> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 17.2 ;
+    plz-cl:hasDailyMinimum 3.2 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:27:06.475013+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-28"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-29> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 19.9 ;
+    plz-cl:hasDailyMinimum 5.4 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:26:16.091478+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-29"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-09-30> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 17.4 ;
+    plz-cl:hasDailyMinimum 6.8 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:25:17.817336+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-09-30"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-10-01> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 18.7 ;
+    plz-cl:hasDailyMinimum 5.2 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:24:18.210530+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-01"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-10-02> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 12.0 ;
+    plz-cl:hasDailyMinimum 6.9 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:23:20.544720+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-02"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-10-03> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 19.2 ;
+    plz-cl:hasDailyMinimum 6.8 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:22:13.670536+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-03"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-10-04> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 15.5 ;
+    plz-cl:hasDailyMinimum 0.6 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:21:30.316740+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-04"^^xsd:date ;
+    plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
+
+<https://palazzo.io/ontology/Climate/Ind/Temperature/WivenhoeGardenPortico/2026-10-05> a plz-cl:MinMaxTemperatureRecord ;
+    plz-cl:hasDailyMaximum 18.5 ;
+    plz-cl:hasDailyMinimum 2.7 ;
+    plz-cl:isRecordedAtDateTime "2026-10-06T10:20:26.731890+13:00"^^xsd:dateTime ;
+    plz-cl:isRecordedForDate "2026-10-05"^^xsd:date ;
     plz-cl:recordedAtLocale plz-cl-ind-loc:WivenhoeGardenPortico .
 
 plz-cl-ind-loc:SiroccoScape a plz-cl:Locale ;
